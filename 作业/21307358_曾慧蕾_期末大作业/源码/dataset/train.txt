@@ -1,0 +1,1600 @@
+module: autograd	 aot autograd  handle requires grad mutation in aotautograd
+module: autograd	 cta  let s stamp out flaky tests 
+module: autograd	 discussion  analyzing a list of tensors stored as intermediate values   saved for backward in autograd graph
+module: autograd	 nested tensor  view   inplace for autograd 
+module: autograd	 set  operation on a view  detach    of the view tensor changes grad fn of the original view tensor from viewbackward  to asstridedbackward 
+module: autograd	 svd pca  lowrank  backward is unstable when for a matrix a  the parameter q is set to a value q   rank a  
+module: autograd	 view func but without keeping original view tensor alive
+module: autograd	add a check to detect mutation of the inputs during backward
+module: autograd	add a new argument check inf true  by default  or check pos inf   check neg inf to anomaly mode
+module: autograd	add ability to ignore arguments outputs in torch autograd functional jacobian
+module: autograd	add post accumulategrad hook as a nice public api
+module: autograd	add zerotensor support for mm
+module: autograd	addr  baddmm  dist  l  loss will backward fail when input tensors have different dtypes
+module: autograd	api to support combined activation offloading or checkpointing
+module: autograd	atan  will gradcheck fail when other is a tensor with int  dtype
+module: autograd	autograd api to get saved for backwards tensors for an autograd graph
+module: autograd	autograd doc does not mention torch autograd set grad enabled
+module: autograd	autograd doesn t stop executing backward graph early enough in situations involving set 
+module: autograd	autograd functional jacobian   imaginary part is lost for functions with real input and complex output 
+module: autograd	autograd functional jacobian   tensor instead of function as input for reverse mode 
+module: autograd	autograd is not working on ios
+module: autograd	autograd precision for conv   bn  between pytorch version        and       
+module: autograd	avoid incrementing refcount of grad fn in unpack list
+module: autograd	backward checks len of inputs before it s converted to a tuple
+module: autograd	backward hook execution order changes when input requires grad is false
+module: autograd	backward not available for index and mask
+module: autograd	baddmm triggers internal assert failed when input requires grad
+module: autograd	casting real parameter to complex during forward produces warning on backward
+module: autograd	cat gradgrad tests failing
+module: autograd	cdist backward dependent on compute mode
+module: autograd	channel shuffle output is sometimes aliased with its input
+module: autograd	check batched forward grad fails for torch norm and related ops
+module: autograd	checkpointing without re entrant autograd
+module: autograd	create a boxed fallback   template recipe for autograd that forwards  but errors on backwards
+module: autograd	create a boxed templated adinplaceorview kernel
+module: autograd	create graph true results in grad fn error for differentiable functions
+module: autograd	cumprod  prod will backward fail if dtype argument is different than the dtype of input tensor
+module: autograd	dedicated function for shallow copy and detach
+module: autograd	derivative for  ctc loss backward
+module: autograd	derivative not implemented for narrow copy
+module: autograd	det will return wrong gradient for  x  matrix with   value 
+module: autograd	diagonal of jacobian matrix
+module: autograd	differentiate with regard a subset of the input
+module: autograd	disabled test backward nn functional conv d cuda float      main   testcompositecompliancecuda 
+module: autograd	disabled test fn grad div trunc rounding cuda float      main   testbwdgradientscuda 
+module: autograd	disabled test fn grad linalg det singular cuda complex       main   testbwdgradientscuda 
+module: autograd	disabled test fn gradgrad linalg lu factor ex cuda float      main   testbwdgradientscuda 
+module: autograd	disabled test forward mode ad linalg det singular cuda complex       main   testfwdgradientscuda 
+module: autograd	disabled test inplace grad div trunc rounding cuda float      main   testbwdgradientscuda 
+module: autograd	disabled test inplace grad index put cuda complex       main   testbwdgradientscuda 
+module: autograd	disabled test inplace gradgrad remainder cuda float      main   testbwdgradientscuda 
+module: autograd	disabled test lobpcg    main   testautograd 
+module: autograd	doing inplace on a inplace view of tensor that retains grad triggers internal assert
+module: autograd	empty or nan data pollute gradient even if they are not involved during backward
+module: autograd	ensure custom function are correct in double backward setting
+module: autograd	error when calculating the jacobian of torch conj using forward mode differentiation
+module: autograd	exception thrown in final autograd callback  queue callback  not caught if not on cpu thread  terminate called after throwing an instance of  python error 
+module: autograd	exporting the operator  aten  grad  to onnx opset version    is not supported 
+module: autograd	expose a savedtensorshooks nn module for users to register saved tensors hooks
+module: autograd	expose isdifferentiabletype to python
+module: autograd	fast gradcheck fails when outputs that do not require grad precede outputs that do
+module: autograd	feature  add derivative for channel shuffle
+module: autograd	feature request  fast way to approximate the diagonal of the hessian
+module: autograd	feature request  set grad enabled  mods or params  as a safe context manager
+module: autograd	finish deprecation of autograd decorator over class objects
+module: autograd	finishing opinfos  test autograd py
+module: autograd	follow ups to do after adding nested checkpoint
+module: autograd	forward ad and torchscript functions results in nones or wrong values 
+module: autograd	forward ad for  euclidean dist
+module: autograd	forward mode ad formula for torch add  and possibly others  accidentally upcasts float   to float  
+module: autograd	functional jacobian does not work with torchdiffeq
+module: autograd	functions are rendered incorrectly
+module: autograd	functorch transforms are silently incorrect with autograd function
+module: autograd	gradcheck fails for torch distribution transform apis in forward mode
+module: autograd	gradcheck fails for torch trace
+module: autograd	gradcheck failure with sparse matrix multiplication
+module: autograd	gradcheck for torch solve may trigger internal assert failed
+module: autograd	gradcheck produces false positives with sparse inputs when masked false 
+module: autograd	gradcheck should support the comparison of nan
+module: autograd	gradgrad of max pool d fails with empty batch dimension
+module: autograd	gradgradcheck does not work with sparse inputs 
+module: autograd	gradgradcheck fails for torch native layer norm
+module: autograd	gradients tests are very time consuming
+module: autograd	hardshrink gives wrong gradient for   input when lambd is   
+module: autograd	higher order derivatives extremely slow  increasing exponentially
+module: autograd	higher order derivatives not working when setting compute device to torch device  mps  
+module: autograd	improve checkpoint thread safety
+module: autograd	improving error message runtimeerror  one of the differentiated tensors appears to not have been used in the graph  set allow unused true if this is the desired behavior 
+module: autograd	improving save on cpu s performance by overlapping memory transfers with compute
+module: autograd	inconsistent computation of gradient in maxunpooling
+module: autograd	incorrect cpu implementation of ctcloss backward step
+module: autograd	index add   inconsistent between cpu and cuda
+module: autograd	index fill will trigger internal assert when float tensor requiring grad   int tensor
+module: autograd	inplace bool api   sum will trigger internal assert failed
+module: autograd	interactions between views   autograd function   aotautograd causes memory leak
+module: autograd	internal assert when ctx saved tensors fails when saving results of an intermediate view tensor with torch utils checkpoint and use reentrant false
+module: autograd	interpolate  trilinear returns wrong gradients on cuda
+module: autograd	istft gradcheck fails on rocm
+module: autograd	it seems that torch tensor addmv and torch tensor addr will check some inputs  dtype if and only if in backward  
+module: autograd	jacfwd and jacrev are fundamentally broken for complex inputs
+module: autograd	jacrev raise  cannot access storage of tensorwrapper  error when computing the grad of storage
+module: autograd	large performance difference of loss backward   between torch       and torch      
+module: autograd	layer norm triggers internal assert with input requiring grad   zero size int tensor
+module: autograd	lazily start worker threads in the autograd engine
+module: autograd	legitimize harden differentiable optimizers in torch optim
+module: autograd	linalg pinv singular tests are slow
+module: autograd	logaddexp  fails to backward
+module: autograd	make the evaluated value of function f x  accessible from torch autograd functional jacobian f x 
+module: autograd	make torch tensor view support autograd for appropriate cases
+module: autograd	matmul with csr matrix in inference mode throws an exception
+module: autograd	max pool d with indices self       shouldn t need to save self for backward
+module: autograd	max unpool gives wrong gradient when indices has duplicate
+module: autograd	mechanism for tensor subclasses to  disable autograd 
+module: autograd	memory leak when saving an input tensor returned as is if mark dirty and running with dual tensors
+module: autograd	missing doc for torch autograd functions
+module: autograd	move the queue callback   api out of variable  execution engine and into a public api
+module: autograd	mseloss fails to compute the gradients when inputs have different dtype
+module: autograd	multi output derivative formulas can save unnecessary tensors
+module: autograd	nan appears in the backward results of masked cumprod on macos
+module: autograd	native functions should not be allowed to take in a grad argument
+module: autograd	opinfos disabled for batched forward grad computation
+module: autograd	pass backward flags such as retain graph to context of custom torch autograd function
+module: autograd	performance improvement in autograd forward ad using zerotensors
+module: autograd	possibly out of date error in autograd codegen
+module: autograd	preserve tensor subclasses when unpacking a savedtensor
+module: autograd	pt  improperly executes ambient saved tensors hooks
+module: autograd	pytorch        cuda test errors
+module: autograd	pytorch bug  cannot pass gradient through index add
+module: autograd	raw saved tensors can survive the deletion of the underlying savedvariable object
+module: autograd	register  hook causes the cuda out of memory  and remove   is useless
+module: autograd	reuse autograd grad graph for rapid  repeated gradient calculation
+module: autograd	rollup  forward mode ad operator coverage
+module: autograd	rollup  top forward over reverse formulas
+module: autograd	runtimeerror   map base  at when exporting squeeze
+module: autograd	runtimeerror  cuda error  an illegal memory access was encountered using vmap and model ensembling call for cuda system
+module: autograd	runtimeerror  event device type cuda does not match blocking stream s device type cpu
+module: autograd	runtimeerror  expected a proper tensor but got none  or an undefined tensor in c    for argument     grad y 
+module: autograd	runtimeerror  trying to backward through the graph a second time  or directly access saved tensors after they have already been freed   saved intermediate values of the graph are freed when you call  backward   or autograd grad    specify retain graph true if you need to backward through the graph a second time or if you need to access saved tensors after calling backward
+module: autograd	scatter fails the gradient computation in reverse mode for src when index is empty
+module: autograd	segfault in  pyfunctionprehook
+module: autograd	semantics of sparse operations clarification   sparsity of the gradient with respect to a sparse tensor input
+module: autograd	set grad enabled not respected when running on a web server
+module: autograd	significant time difference of calculating jacobian matrix using jacrev and oracle functions
+module: autograd	simple script segfaulting when grad is enabled
+module: autograd	simplify module backward hooks to use multi grad hooks instead
+module: autograd	slice embed  select embed like diag embed
+module: autograd	soft margin loss gives wrong gradient when target with dtype uint 
+module: autograd	sparse mm triggers internal assert failed when backwarding
+module: autograd	split up test test autograd py
+module: autograd	stop gradient option for padding
+module: autograd	strange backward behavior with sparse tensors
+module: autograd	stride of gradient is not same as the corresponding tensor
+module: autograd	support differentiability through clone and update
+module: autograd	support sparse coo csr csc bsr bsc return values in gradcheck input function
+module: autograd	support views in custom autograd functions
+module: autograd	svd backward  does not handle inputs of rank r   min m  n  
+module: autograd	tensor backward type hints clarification
+module: autograd	tensors that share same underlying storage to also share gradient storage
+module: autograd	test forward mode ad hangs for nn functional cosine embedding loss
+module: autograd	test functional autograd benchmark py  testfunctionalautogradbenchmark  test fast tasks passes with all nans
+module: autograd	test meta vstack cuda int      main   testmetacuda  fails with debug  
+module: autograd	third order gradient of torch pow with tensor args and certain input returns nan
+module: autograd	toggling deterministic mode for individual autograd backward functions
+module: autograd	tools autograd derivatives yaml doesn t support methods on optional tensor
+module: autograd	torch addmv backward fails
+module: autograd	torch autograd detect anomaly should report the original forward trace as part of the error  rather than as out of band warning
+module: autograd	torch compile frees computation graph in a gan training setup and tries to call backward a second time
+module: autograd	torch compile with aotautograd does not support double backwards
+module: autograd	torch compile x autograd function  make the backward strict mode less srict
+module: autograd	torch func jvp fails with bert training
+module: autograd	torch prod internal asserts when passed a tensor that requires grad  and a dtype 
+module: autograd	torch renorm gives wrong gradient for   valued input when p is even and maxnorm   
+module: autograd	torch sparse sum backward fails when reducing over dense dimensions 
+module: autograd	torch special gammainc backward pass with respect to the first argument
+module: autograd	torch utils checkpoint optimization opportunity
+module: autograd	torch where behaves differently from in place replacement
+module: autograd	track  integral   floating inputs to an op with floating requiring grad result in internal assert
+module: autograd	tracker  slow gradcheck failures possibly indicating incorrect gradients
+module: autograd	training  forward   backward pass with  different  batch size  no speedup observed when backward pass has smaller batch size
+module: autograd	transpose of a sparse tensor is not a view operation
+module: autograd	vectorized jacobian and hessian errors with ffts
+module: autograd	views created in   torch dispatch   share storage but not version counter
+module: autograd	warning in autograd init regarding to aten  reshape
+module: autograd	when  trapezoid  is called with an empty tensor input  it does not produce an output with requires grad
+module: autograd	will deep implicit models ever become first class citizens in pytorch 
+module: autograd	xla not being tested in testautograddevicetype
+module: cpp	       incompatible with c   built for        and vice versa
+module: cpp	 bug  libtorch bug in nn  multiheadattention and nn  transformer
+module: cpp	 bug  the output shape from torch  mean and torch  var is different  in libtorch
+module: cpp	 c    adding type checking or type casting to torch  packedtensoraccessor indexing
+module: cpp	 c    module  pretty print is broken
+module: cpp	 c    support negative index in torch  tensoraccessor  size  
+module: cpp	 c    torch  conv d   expected output padding to be a single integer value or a list of   values
+module: cpp	 c   api parity  incorrect documentation for optim initialization in serialization docs
+module: cpp	 c   frontend  simple changes for cleaner options
+module: cpp	 cpp api  add adadelta  adamax  asgd  nadam  radam and rprop
+module: cpp	 doxygenfunction  unable to resolve multiple matches for function      in c   documentation
+module: cpp	 feature request  trace   script c   models
+module: cpp	 libtorch can not save a  vector int  to autogradcontex  saved data 
+module: cpp	 libtorch same model in cuda and cpu got different result 
+module: cpp	 pytorch      torch  nn  dropout output is incorrect on windows
+module: cpp	 v     python c   api parity master tracking task
+module: cpp	 y getintrusiveptr    set storage x getintrusiveptr    storage       in c   is not supported
+module: cpp	add cpack support to cmakelists txt
+module: cpp	add load state dict and state dict   in c  
+module: cpp	add more flexibility on print   output console
+module: cpp	add support for c   profiler apis
+module: cpp	add support for multidimensional input to at  tensor
+module: cpp	add support for user defined types in serialization in libtorch
+module: cpp	after add  path to libtorch libtorch lib to ld library path  i can t import torch scatter 
+module: cpp	anyvaluetest correctlyaccessesintwhencorrecttype ubsan failure  owncast of address  x        d    which does not point to an object of type  holder const int   sep              x        d     note  object is of type  torch  nn  anymodule  value  holder int  
+module: cpp	at  size documentation conflict
+module: cpp	backward function causes device error in c   when changing module s device repeatly 
+module: cpp	build  cmake  need to uniformize installation of libraries in cmake install libdir  not lib 
+module: cpp	build link not right
+module: cpp	c    optional t  operators should delegate to corresponding operators on t
+module: cpp	c   adagrad optimizer doesn t initialize parameter state
+module: cpp	c   api torch  nn  multiheadattention crashes by division by zero
+module: cpp	c   at  tensor s pinned memory status is not printing out correctly 
+module: cpp	c   context  setdeterministicalgorithms default  nd arg not defined in header
+module: cpp	c   convert from std  vector tensor  to c    list optional tensor  
+module: cpp	c   custom module not thread safe
+module: cpp	c   indexing vs python
+module: cpp	c   randint returns float    python returns int  
+module: cpp	c   tensor print doesn t show requires grad and grad fn like python tensor print
+module: cpp	c   torch  nn  sequential clone   method overwrites child module names
+module: cpp	c   torch  nn  sequential increments count on name errors
+module: cpp	c   use pybind   to import torch  free    invalid pointer
+module: cpp	c   version       libtorch dynamic load fails    gcc only
+module: cpp	caffe  interface library cmake macro prevents linking to libtorch as a transitive dependency
+module: cpp	calling  backward   inside of an lbfgs closure function throws an exception in libtorch v      
+module: cpp	can not use nn  functional torch  softmax      in sequential
+module: cpp	cannot include extension h under windows   linker error  thpvariable wrap
+module: cpp	clang tidy  error  do not use const cast  cppcoreguidelines pro type const cast is counterproductive
+module: cpp	code linking to libtorch cannot use thrust cub functions
+module: cpp	compile libtorch by source code failed 
+module: cpp	compiling errors when trying to cross compile the c   api for rtos  qnx 
+module: cpp	contradictory output values
+module: cpp	crash when using tensor set data   function in libtorch on windows
+module: cpp	cuda  thtensor code complains about devices not matching when creating tensor from blob
+module: cpp	cuda device support does not register allocator to c    getallocator     
+module: cpp	deployment training model at c     end
+module: cpp	disabled test cpp frontend module has same output as python    main   testcppextensionjit 
+module: cpp	distributedstreamsampler  support stream sampler in distributed setting
+module: cpp	do not call nullptr deleter in at  fromdlpack  dlpack 
+module: cpp	do we have plan to offer c   binding for prune related features 
+module: cpp	doc on index of cpu device seems wrong
+module: cpp	documentation for c     libtorch autograd profiler
+module: cpp	domain transformation apis for libtorch and libtorch lite
+module: cpp	don t take tensoroptions by reference
+module: cpp	doubly freed pointer in torch  cat error handling when called via pybind   
+module: cpp	doxygen and pytorch documentation
+module: cpp	error while using libtorch   opencv   qt creator
+module: cpp	extending compatibility of libtorch
+module: cpp	failed to link torch library using cmake
+module: cpp	fatal signal asan no sig test in current master hang 
+module: cpp	file missing when i build with c  
+module: cpp	followup requires for mkl link issue   cannot find  lmkl core
+module: cpp	forward backward hooks for c   torch  nn modules
+module: cpp	forward program terminated from   cxa pure virtual
+module: cpp	from blob segfaults when given cuda pointer
+module: cpp	functional interface for optimizers
+module: cpp	get a thread safe copy of torch  nn  sequential object
+module: cpp	glcm implementation in pytorch c   api and cuda
+module: cpp	hope to support something like   torch  manual seed for mulit thread 
+module: cpp	how could i print the log in source code
+module: cpp	how do you change adam learning rate since the latest commits  
+module: cpp	how to delete module from gpu   libtorch c   
+module: cpp	how to load pytorch model with lstm using c   api
+module: cpp	how to use libtorch library in cuda file with nvcc compiler c    
+module: cpp	i can t set gpu is   it always use gpu  
+module: cpp	implement a set printoptions method in libtorch
+module: cpp	in autogradcontext  get saved variables   should be renamed to get saved tensors  
+module: cpp	in version      libtorch needs to be woken up every time it is called after the model is initialized  which means that every time the model is called  it is very slow to predict the first picture 
+module: cpp	include declarations yaml in libtorch distributions
+module: cpp	inconsistent variable naming in findtorch cmake
+module: cpp	inerror  reference to  devicetype  is ambiguous
+module: cpp	install libtorch by conan or other c   package manager
+module: cpp	issue when linking c   code with libtorch cpu  cuda not detected
+module: cpp	kind  is prim   internal assert failed at     torch csrc jit ir ir cpp      
+module: cpp	leaky cmake cuda compile options
+module: cpp	libtorch         produces segfault on qt  gui application exit
+module: cpp	libtorch       not supporting glibc       
+module: cpp	libtorch       scripting in debug mode on windows
+module: cpp	libtorch     macos crash when loading on some mac
+module: cpp	libtorch    torch  sigmoid is wrong
+module: cpp	libtorch  collate fn equivalent
+module: cpp	libtorch  error in  xxx   free    invalid pointer
+module: cpp	libtorch  runtime error when iterating batch of dataloader
+module: cpp	libtorch api on mobile
+module: cpp	libtorch c   multiple gpu performance slower than single gpu
+module: cpp	libtorch c   torch  stack error
+module: cpp	libtorch can t switch between with and without layers by is training  
+module: cpp	libtorch cpp docs missing for tensor  item  
+module: cpp	libtorch create a tensor is very slow  who can tell me why
+module: cpp	libtorch cuda use too much system memory
+module: cpp	libtorch exports miniz symbols
+module: cpp	libtorch malloc cause coredump
+module: cpp	libtorch need operator  in torch  device
+module: cpp	libtorch new op
+module: cpp	libtorch on apple m 
+module: cpp	libtorch report c   error when compiling on my own project
+module: cpp	libtorch with deeplabv  resnet    will not forward 
+module: cpp	link error happen when intergrate libtorch to other tool
+module: cpp	linking error with libtorch
+module: cpp	logical and and or for tensors in c   api 
+module: cpp	m  failing to build example app in c  
+module: cpp	m fallback torch  cppfunction  makefromboxedfunction  my fallback   gives bad error message
+module: cpp	mention accessor data ptr for raw memory access in libtorch index api document and discuss performance implications
+module: cpp	missing bin and include when building with torchvision on centos
+module: cpp	model loaded in c   runtime is not thread safe
+module: cpp	models saved in c   libtorch with torch  save  cannot be loaded in python using torch load
+module: cpp	move template code to header
+module: cpp	multi gpu via torch  nn  parallel  data parallel
+module: cpp	named tensors in c   is undocumented
+module: cpp	nn modules functional h does not support optional arguments
+module: cpp	optimizer support via libtorch c   on android
+module: cpp	out variant of many loss functions are not consistent with non out variant when reduction is not none
+module: cpp	parallelization  more balanced work distribution among workers
+module: cpp	parameters between models don t copy in the c   pytroch frontend under windows
+module: cpp	performance issue with torch jit trace    slow prediction in c    cpu 
+module: cpp	problem with c   utils variant h
+module: cpp	profile pure c   process
+module: cpp	provide a set of c   foreach apis that will take tensor pointers as an input
+module: cpp	provide half away from zero rounding mode on tensor  round
+module: cpp	provide rpc  remote and dist autograd c   apis and register them as prim  ops
+module: cpp	pybind   cpp extensions broken with pytorch v     
+module: cpp	python c   api parity  torch nn modules and functional
+module: cpp	python c   api parity  torch optim optimizers
+module: cpp	pytorch c   api docs only tracks master branch
+module: cpp	pytorch leaks a macro definition called  check  in the c   version
+module: cpp	pytorch prune in libtorch
+module: cpp	remove const from function return type if returning const value
+module: cpp	request to add system requirements to doc
+module: cpp	scripted fasterrcnn model cannot be loaded with libtorch c   api
+module: cpp	segfault on unloading a model
+module: cpp	segmentation fault in c   api torch  from blob      clone  
+module: cpp	segmentation fault when use torch  from blob
+module: cpp	some c   library docstrings incorrectly linked repeated
+module: cpp	static linking c    op not available at runtime
+module: cpp	status of pip wheels with  glibcxx use cxx   abi  
+module: cpp	store sourcedataset in mapdataset using pointer
+module: cpp	suppress scientific notation in libtorch
+module: cpp	symint shouldn t be in dynamic type h
+module: cpp	tensors can t be  overwritten in visual studio windows
+module: cpp	terminate called after throwing an instance of  c    error    what     istuple   internal assert failed at   home wenda libtorch include aten core ivalue inl h       please report a bug to pytorch  expected tuple but got genericlist
+module: cpp	the documentation for c    dict is completely empty 
+module: cpp	the new version of the libtorch become slow
+module: cpp	torch  nn  functional  interpolate crash
+module: cpp	torch  nn  sequential not compatible with torch  nn  rnn
+module: cpp	torch  nogradguard no grad get wrong  when i use batchsize   
+module: cpp	torch  normal only supports  double  double   but at  normal supports  double  double     double  tensor     tensor  double     tensor  tensor 
+module: cpp	torch  var out and dimnames
+module: cpp	torch  zeros is slow for small tensors  c   
+module: cpp	torch autograd set detect anomaly true  does not exist in c   
+module: cpp	torch libraries variable leads to undefined reference function error in compiling while using libtorch in c  
+module: cpp	torch ops aten find inconsistent with str find
+module: cpp	type conflict
+module: cpp	unable to build and use libtorch function via pybind    undefined symbol error upon import
+module: cpp	updating learning rate with libtorch     and optimiser options
+module: cpp	valgrind leak checking flags losses in libtorch
+module: cpp	vmap  jacrev  jacfwd  hessian  etc   in libtorch
+module: cpp	what     result type float can t be cast to the desired output type long
+module: cpp	when using libtorch v        calling at  slow conv dilated d directly returns wrong results on cpu backend
+module: cpp	will the model run slower when deployed using libtorch  
+module: cpp	would you like  upload to the cpp libtorch to  vcpkg  package repo 
+module: cuda	 a error in docker  runtimeerror  cuda error  no kernel image is available for execution on the device
+module: cuda	 bazel  error  use of undeclared identifier  cudagraphdebugdotprint 
+module: cuda	 bug   why allocator use stream to manage block 
+module: cuda	 bug  poor torch bmm performance on h   
+module: cuda	 cuda       cusparse deprecated support for sparse bsr
+module: cuda	 cuda  raise softmax forward   bit indexing gpu memory requirement
+module: cuda	 cuda  switching ci to cuda      timing out linux bionic cuda     py     gcc    test  distributed        linux  xlarge nvidia gpu 
+module: cuda	 cudnn  cudnn v  api  cudnn flash attention upstreaming rfc tracking issue
+module: cuda	 cusparselt  cuda error  internal error when calling cusparseltstructureddescriptorinit
+module: cuda	 discussion  route pointwise conv d conv d to matmul 
+module: cuda	 feature request   discussion  include basic ctypes bindings for cudart cublaslt cublas nvrtc cudnn with stock pytorch
+module: cuda	 fr  add a way to reserve memory that survives torch cuda empty cache  
+module: cuda	 h     test ops py  testfaketensorcuda test fake crossref backward amp nn functional scaled dot product attention cuda float   failed
+module: cuda	 interoperability  zero size cuda arrays do not look supported
+module: cuda	 libtorh consistency problem of gpu computing
+module: cuda	 regression  not getting cuda error  device side assert triggered on main for cuda kernel assert 
+module: cuda	 rfc  quantile should work for float   half on the gpu
+module: cuda	accuracy issues with jitterated complex kernels for acos  acosh  asin  asinh  tan and tanh
+module: cuda	adaptiveavgpool d throws different exceptions when using the gpu
+module: cuda	add mixed dtypes mm implementation based on cutlass upstream
+module: cuda	add out dtype support for sparse semi structured cutlass back end
+module: cuda	addcmul on cuda does not have the correct fma behavior
+module: cuda	align on the minimum supported linux version  centos   is eol in july      
+module: cuda	allow reductions to write into pinned memory
+module: cuda	aten  cudnn convolution chooses different conv implementation given the same inputs 
+module: cuda	backend friendly distributions
+module: cuda	batchnorm nan in amp autocast mode 
+module: cuda	benchmark cache persist
+module: cuda	breaking incompatibility with cuda       pytorch stable  torchvision
+module: cuda	bring cudapluggableallocator to feature parity with the native allocator
+module: cuda	building project using libtorch results in  failed to find nvtoolsext 
+module: cuda	c   host device for std  isnan c    complex t   
+module: cuda	can t import torch     oserror related to libcublaslt so   
+module: cuda	can the cuda device luid be exposed as part of  cudadeviceproperties 
+module: cuda	cannot use at cuda driver check from user code
+module: cuda	csr matrix add  error with runtimeerror  cuda error  kernel launch failure when calling cusparsexcsrgeam nnz
+module: cuda	cublas status not supported when calling cublasdgemv
+module: cuda	cuda      support request for building pytorch from source code
+module: cuda	cuda    support request 
+module: cuda	cuda device support does not register allocator to c    getallocator     
+module: cuda	cuda error  initialization error
+module: cuda	cuda error cublas status not initialized
+module: cuda	cuda rng state for       cannot be used for      
+module: cuda	cuda tf   docs are outdated
+module: cuda	cuda version      has differential accuracy when executing cpu and gpu
+module: cuda	cudaextension no longer works with ccache
+module: cuda	cudamallocasync cause too much fragmentation 
+module: cuda	cudnn error  cudnn status not supported  for torch nn functional grid sample  
+module: cuda	cupti initialization error
+module: cuda	disabled test compare cpu  refs empty strided cuda float      main   testcommoncuda 
+module: cuda	disabled test conv d dilated cuda tf      main   testnn 
+module: cuda	disabled test cuda memory leak detection    main   testcudamultigpu 
+module: cuda	disabled test inplace grad index put cuda float      main   testbwdgradientscuda 
+module: cuda	disabled test mem get info    main   testcuda 
+module: cuda	disabled test mem get info    main   testcudamultigpu 
+module: cuda	disabled test noncontiguous samples matmul cuda float      main   testcommoncuda 
+module: cuda	disabled test noncontiguous samples nn functional conv d cuda complex      main   testcommoncuda 
+module: cuda	distributed torch linalg eigh  and other functions  on cuda using cusolvermg
+module: cuda	document required semantics of allocation functions in cudapluggableallocator
+module: cuda	dynamo graph break due to context manager do not resume inside outside the context manager
+module: cuda	early testing stop logic for cuda error looks wrong for instantiated test with pytest
+module: cuda	enhanced rng state management with index based control for graph safe tensor parallelism
+module: cuda	error      invalid device ordinal  triggered internally at    c   cuda cudafunctions cpp      
+module: cuda	extreme slowdown of torch mm for certain sizes and strides with bfloat  
+module: cuda	f conv d input  weight  bias  self stride  runtimeerror  cudnn error  cudnn status mapping error
+module: cuda	failed to open libnvrtc builtins so     
+module: cuda	feature request  deterministic cuda cumsum
+module: cuda	getting error error  namespace  cub  has no member  debug  when try to build v      with cuda     
+module: cuda	got many testdtensoropscuda test dtensor op db x test failures
+module: cuda	gpu tests can fail with invalid memory access due to compiler generating invalid code
+module: cuda	high dimensional grid sample
+module: cuda	higher gpu consumption for lenet   and lstm models when compared to other frameworks
+module: cuda	illegal memory access on h    testsparsecompressedtritonkernelscuda test triton sampled addmm block size    cuda bfloat  
+module: cuda	implmenet kthvalue for bfloat   on cuda
+module: cuda	import torch results in cuinit call
+module: cuda	importerror  libcudnn so    cannot open shared object file  no such file or directory
+module: cuda	importerror  libcupti so       cannot open shared object file  no such file or directory
+module: cuda	importerror  undefined symbol  cublassetworkspace v   version libcublas so   
+module: cuda	inconsistency between gpu memory usage in torch cuda memory summary and nvidia smi
+module: cuda	inconsistency between nan cast to int   on cpu and gpu
+module: cuda	inconsistency on torch clamp
+module: cuda	inconsistent results when running torch arctanh
+module: cuda	indexerror  map  at with mpi cuda collectives
+module: cuda	installing pytorch with build split cuda on and cudnn fails on linker error
+module: cuda	interpolate  trilinear returns wrong gradients on cuda
+module: cuda	interpolate with antialias true on cuda doesn t work if the difference of spatial size is large
+module: cuda	istft gives wrong results for some batched input
+module: cuda	latest pytorch is not buildable against cuda     
+module: cuda	max unpool d will trigger an assertion fail under compute sanitizer
+module: cuda	more performant cachinghostallocator for pinned memory allocation
+module: cuda	moving tensor to gpu by  cuda   gets stucked when amd secure encripted virtualization  sev  is activated
+module: cuda	multimarginloss doesn t check the value of target on cuda
+module: cuda	ncu python conv d py runs indefinitely after activating cudnn benchmark
+module: cuda	nn crossentropyloss error out when the sample size is large
+module: cuda	no gpu found  using cpu during preprocessing error processing dataset with nsfhifigan
+module: cuda	notimplementederror  could not run  aten   spdiags  with arguments from the  cuda  backend 
+module: cuda	nvidia p     where to disable upcasting  plus kernel image missing 
+module: cuda	optimize cudnn convolution out to reduce unnecessary memory allocation and copy
+module: cuda	parameters of cuda module zero out when used in multiprocessing
+module: cuda	pca lowrank and svd lowrank broken under automatic mixed precision 
+module: cuda	performance degradation on amd   a    when computation is small
+module: cuda	placing lstm model on bfloat   on gpu causes error
+module: cuda	potential cublas handle leaking
+module: cuda	problem with instalation torch  on a    cu    
+module: cuda	pytorch       dev         cuda not available
+module: cuda	pytorch       encountered cuda error  an illegal memory access was encountered
+module: cuda	pytorch      conda package with cuda requires too many unneccessary packages
+module: cuda	pytorch      x slower than    
+module: cuda	pytorch     x cuda error  operation not supported when tensor to a different device
+module: cuda	pytorch index select is too slow
+module: cuda	pytorch nighlty and openai triton cuda
+module: cuda	pytorch no cuda memory caching   with torch multiprocessing shared tensors seems to perform use after free
+module: cuda	pytorch support for cuda       
+module: cuda	pytorch with gpu support compile error on jetson xavier rx
+module: cuda	ram leak when copying tensor from cpu to cuda
+module: cuda	regression in text encoding
+module: cuda	regression on cuda      for vanilla transformer layer
+module: cuda	regressions with torch compile   amp   ddp with recent nightly builds
+module: cuda	relax version dependencies on cuda pip wheels 
+module: cuda	repro str could be displayed with slightly wrong env vars
+module: cuda	reproducible  cuda error  an illegal memory access was encountered 
+module: cuda	request for deterministic support for reflection pad d backward cuda
+module: cuda	rfftn and irfftn operations in pt  return different results compared to v      
+module: cuda	runtimeerror   grid sampler  d cuda  not implemented for  bfloat   
+module: cuda	runtimeerror  cuda error  an illegal memory access was encountered  torch cuda streams py   line     in synchronize
+module: cuda	runtimeerror  cuda error  an illegal memory access was encountered using vmap and model ensembling call for cuda system
+module: cuda	runtimeerror  cuda unknown error even after sudo modprobe  r nvidia uvm    sudo modprobe nvidia uvm
+module: cuda	runtimeerror  device         device   num gpus internal assert failed
+module: cuda	runtimeerror  handle   internal assert failed at     c   cuda driver api cpp    
+module: cuda	runtimeerror  nonzero is not supported for tensors with more than int max  elements  file a support request
+module: cuda	runtimeerror  nvml success    r internal assert failed at   opt conda conda bld pytorch               work c   cuda cudacachingallocator cpp        please report a bug to pytorch
+module: cuda	runtimeerror  tensors of type tensorimpl do not have numel
+module: cuda	simulating lower memory on gpu does not indicate simulated memory in error message
+module: cuda	single batch torch bmm is significantly slower with cublas       
+module: cuda	skip cuda kernel launch with torch sum when dimension length is  
+module: cuda	softmax function slows down for data with large range
+module: cuda	speed up triu tril kernel
+module: cuda	speed when installing from source is very low with cuda   
+module: cuda	stochastic illegal memory access error mid epoch on aws p d instances
+module: cuda	system memory leak when using different input size of torch nn conv d
+module: cuda	t contiguous       slower in eager mode compared to torch compile
+module: cuda	tensor  cuda   very slow with specific array sizes
+module: cuda	tensor to sparse fails on large matrices
+module: cuda	test pytorch onnx onnxruntime cuda py is not run in ci
+module: cuda	tf   conv transpose d with groups has bad precision compared to fp  
+module: cuda	the cuda batched gemm has a poor performance for bigger batch size with smaller matrix size
+module: cuda	there is a big precision error between a    and      when using torch matmul with fp   precision
+module: cuda	this flag not work   torch backends cudnn allow tf     false
+module: cuda	torch  c  cuda getdevicecount inflates system memory usage
+module: cuda	torch cuda is available   crashes python in systems with disabled gpu
+module: cuda	torch cuda is available   return false
+module: cuda	torch cuda is available   returns true even if the cuda hardware can t run pytorch
+module: cuda	torch cuda mem get info to return   if cuda context isn t initialized
+module: cuda	torch cuda memory reserved always returns   bytes
+module: cuda	torch einsum   computes different results on cpu and cuda on a    gpu 
+module: cuda	torch einsum may choose a strategy for which there is not enough memory
+module: cuda	torch matrix exp x  get inf and nan
+module: cuda	torch mm  exceptions thrown on the cpu and gpu are inconsistent
+module: cuda	torch needs to show that it support sm    even if functionally the same as sm   
+module: cuda	torch nn ctcloss trigger out of bound read under compute sanitizer
+module: cuda	torch nn functional multilabel margin loss cuda lacks checking of  out of bound 
+module: cuda	torch nn rrelu not reporting lower   upper on cuda
+module: cuda	torch rand      is not consistent for large shape dimensions across gpus  with the same random seed 
+module: cuda	torch svd fails on large matrices
+module: cuda	training a network super slow with pytorch    
+module: cuda	training hangs at line torch cuda synchronize  
+module: cuda	transformer performance drop due to slow pytorch gemms
+module: cuda	unable to build on cuda      due to cutlass incompatibility
+module: cuda	unexpected behavior when running torch max in cuda
+module: cuda	uninformative oom error
+module: cuda	unknown cuda architecture name    a in cuda select nvcc arch flags  compiling from source 
+module: cuda	unnecessary cuda synchronizations that we should remove in pytorch
+module: cuda	unnecessary record stream call for backend cudamallocasync
+module: cuda	upgrading spgemm algorithm to resolve cusparse spgemm insufficient resources problem
+module: cuda	upsampling resblock gpu memory spike
+module: cuda	use cudnn   doesn t force cmake to fail if cudnn is not found
+module: cuda	version libcudnn ops infer so   not defined in file libcudnn ops infer so   with link time reference
+module: cuda	why doesn t pytorch install the real nvidia cudnn pip package 
+module: cuda	why torch mode return different value between cpu and gpu
+module: cuda	yolov  train
+module: docs	  docathon h        
+module: docs	 cppdocs  torch  load function istringstream example typo
+module: docs	 doc  torch scalar tensor doc is missing
+module: docs	 doc  view appears to mean different things  view reshape vs transpose permute 
+module: docs	 docs  clarify ddp activation checkpointing support
+module: docs	 docs  idea collection of examples of custom ops   inline torch extensions
+module: docs	 docs  nn sequential docs should list member functions
+module: docs	 docs  randomsampler has unrendered back ticks
+module: docs	 docs  tensor uniform  docs are not clear about whether from to boundary values are included in sampling or not
+module: docs	 docs  torch is neg torch tensor is neg not documented
+module: docs	 docs  torch sigmoid to make clear equivalence relations to other sigmoid functions
+module: docs	 docs  url and link format proposal to make function page urls more concise
+module: docs	 dynamo outdated logging setting
+module: docs	 functorch  colab links on functorch       website should be linked to a permalinked version of the colabs
+module: docs	 minor bug  should consume prefix in state dict if present change ordering of keys 
+module: docs	 misleading  the doc started using tensorflow terminology in the document to explain how to use the pytorch code 
+module: docs	 question   docs  short mid long term status of torchscript   jit   torch jit trace   fx   symbolic tracing and its replacement by dynamo
+module: docs	 rocm  build instruction is haphazard missing information unclear  build does not work
+module: docs	 torch distributed  document bfloat   support
+module: docs	a bug in instructions for building pytorch with asan
+module: docs	add a gallery of examples with sphinx gallery
+module: docs	add documentation about backward graph gc behavior
+module: docs	add plots of lrschedulers to doc to make it easier to read
+module: docs	adding a page for subfolder subfile overview descriptions in the developer wiki
+module: docs	anaconda is not a package manager
+module: docs	argmin argmax incorrect doc for the first form
+module: docs	autograd doc does not mention torch autograd set grad enabled
+module: docs	backward hook execution order changes when input requires grad is false
+module: docs	building docs locally fails
+module: docs	cannot compile c   documentation  sphynx assertion
+module: docs	clarify the behavior of dataloader sampler and batch sampler parameters
+module: docs	clarify variables of batchnorm d functions
+module: docs	codeowners file has errors due to non existent people being referred to
+module: docs	compatibility list
+module: docs	comprehensive documentation for tensor indexing 
+module: docs	could be clearer that cross entropy takes logits as input
+module: docs	cuda tf   docs are outdated
+module: docs	disclose c   aten ops type promotion rules under opoverload in python
+module: docs	discrepancy of supported python versions between get started page and index of pre built binaries for pip installation
+module: docs	discuss pytorch org signup issue
+module: docs	display a  reference  link for ops that points to primtorch implementations
+module: docs	distributed store get doesn t work well with add
+module: docs	docs  fix docstrings in functional py and others
+module: docs	docs bug  type annotations for linspace  and logspace  start and end arguments is wrong
+module: docs	docs for torch nn mseloss are confusing
+module: docs	document dist new subgroups
+module: docs	document functional collectives
+module: docs	document required semantics of allocation functions in cudapluggableallocator
+module: docs	document the user facing api for the component level logging system
+module: docs	documentation  torch nn functional embedding docs could more clearly state the requirement that weight be a  d tensor
+module: docs	documentation building fails due to torchgen
+module: docs	documentation error of torch onnx
+module: docs	documentation need to be as per python version
+module: docs	error in torch cdist documentation
+module: docs	error in torch tensor logit documentation
+module: docs	error in torch trapz documentation
+module: docs	expose docs from the yaml for each torch tag in python
+module: docs	extend docs   fixing out of memory with python garbage collection
+module: docs	f interpolate and f grid sample   documentation error and bug
+module: docs	feature  support better rendering for   deprecated sphinx directive
+module: docs	fix docstring errors in   init   py   tensor docs py   meta registrations py   tensor py
+module: docs	fix docstring errors in   init   py   tensor docs py   meta registrations py   tensor py
+module: docs	fix docstring errors in  common utils py   optim utils py   wrap utils py   unshard param utils py   fsdp extensions py  api py   debug utils py   utils py  wrap py  sharded grad scaler py
+module: docs	fix docstring errors in  guards py   ops py   jit internal py  functional py   tensor str py  library py
+module: docs	fix docstring errors in  state dict utils py   runtime utils py   shard utils py
+module: docs	fix docstring errors in  torch docs py  serialization py  overrides py   utils py
+module: docs	fix docstring errors in  vf py   appdirs py  hub py   classes py   storage docs py   linalg utils py  torch version py  quasirandom py  random py    future   py   lowrank py   vmap internals py   sources py    config   py   lobpcg py   namedtensor internals py
+module: docs	fix docstring errors in checkpoint example py  basic strategy py  op schema py  contract py  redistribute py    init   py  api py  device mesh py   utils py  sharding prop py  random py  checkpoint activation py  placement types py  fully shard py  parallel mode py  replicate py
+module: docs	fix docstring errors in default hooks py  post localsgd hook py  debugging hooks py  utils py  hierarchical model averager py  optimizer overlap hooks py  mixed precision hooks py  quantization hooks py  ddp zero hook py    init   py  powersgd hook py  averagers py
+module: docs	fix docstring errors in loss py
+module: docs	fix docstring errors in post localsgd optimizer py  functional sgd py   functional collectives py  optimizer py  utils py  api py  server process global profiler py  functions py  backend registry py    init   py  options py  internal py  functional adam py
+module: docs	fix docstring errors in shard py  op registry utils py  local timer py  file based local timer py  api py  distributed py  cycling iterator py    init   py   utils py  reshard py  common op utils py  elastic distributed sampler py  utils py  log level py  store py  logging py  sharder py  metadata py
+module: docs	fix docstring errors in spectral ops fuzz test py  simple timeit py  timer interface py  op benchmark py   stubs py  fuzzer py  compare py  compile py  interp py  hipify python py  common py  end to end py  timer py    init   py  sparse fuzzer py  blas compare setup py
+module: docs	fix docstring errors in stream py  pipe py  blockpartition py  microbatch py  namespace py  profile py  tracker py  portal py  layout py    init   py
+module: docs	fix docstring errors in stream py  pipe py  blockpartition py  microbatch py  namespace py  profile py  tracker py  portal py  layout py    init   py
+module: docs	fix to bug        
+module: docs	fixing the docstring
+module: docs	fsdp vs  mics
+module: docs	functorch memory efficient fusion gives wrong output batch size
+module: docs	hardtanh docs are inaccurate incomplete  since hardtanh behaves like clamp
+module: docs	hidden rule in nn fractionalmaxpool d
+module: docs	how to get list of all valid devices 
+module: docs	how to get tolerance override in opinfo based test 
+module: docs	https   pytorch org docs stable backends html does not describe torch backends cpu
+module: docs	improve usability of cuda package by adding description of cuda
+module: docs	inconsistent implementation on swa
+module: docs	incorrect docstring   documentation for torch nn functional scaled dot product attention in    
+module: docs	incorrect documentation for bcewithlogitsloss weight 
+module: docs	incorrect documentation in gumble softmax function 
+module: docs	incorrect line in description of torch frombuffer   method
+module: docs	inference mode docs
+module: docs	insufficient mps documentation
+module: docs	lazy tensor core documentation out of date
+module: docs	lazymodules cls to become field exposes implementation detail
+module: docs	maximum python version supported is not indicated
+module: docs	minimal example for torch optim sparseadam
+module: docs	minor inconsistency in description of attn output weights in multiheadattention docs
+module: docs	misleading documentation for cholesky inverse
+module: docs	missing docker directory in tools 
+module: docs	missing docstring for resize as
+module: docs	missing examples in some api docs
+module: docs	missing fx documents for some modules
+module: docs	more clarity in doc for torch cuda event record 
+module: docs	mse documentation is weak
+module: docs	negative exponents of int tensors result in output of zero
+module: docs	nn batchnorm d input shape notation inconsistency
+module: docs	nn conv function to compute conv formula
+module: docs	nn multiheadattention doesn t use efficient scaled dot product attention
+module: docs	nn transformer has dropout layers that bert   gpt   do not have
+module: docs	numbers bigger than the range should be inf while the implementation just keeps the original 
+module: docs	package packageexporter does not actually appear to have a file structure method
+module: docs	parameter gradient is not moved parameter is moved across devices
+module: docs	parameters of cuda module zero out when used in multiprocessing
+module: docs	performance bugs exists in multiple convolution operations e g   convtranspose d  when useing the groups argument
+module: docs	please include virtual physical batch sizes in the tutorials
+module: docs	pytorch     installation tutorial does not work under macbook
+module: docs	pytorch home page does not specify which version of python it requires
+module: docs	pytorch java api documentation is not clear and does not cover example
+module: docs	pytorch xla document error
+module: docs	question about gru rnn lstm  outputs shape
+module: docs	readme could use link to governance
+module: docs	recurrent neural network module
+module: docs	register package has no further documentation
+module: docs	remove all docstrings when python is running in optimization mode
+module: docs	repro str could be displayed with slightly wrong env vars
+module: docs	reproducibility documentation should be updated
+module: docs	request to add system requirements to doc
+module: docs	requesting to add a section to the installing c   distributions of pytorch documentation for apple m  m  processors
+module: docs	revise glossary
+module: docs	rnn documentation is confusing   wrong
+module: docs	rrelu doc doesn t specify the eval mode behaving just like leakyrelu
+module: docs	scatter add  mixing   dim and   dim tensors
+module: docs	security policy impractical   lacks contact information 
+module: docs	shape parameter inconsistency in torch tensor view  torch reshape  torch tensor reshape
+module: docs	some of the enteries in the previous version of pytorch section are invalid
+module: docs	some parameters are missing type descriptions
+module: docs	split up torch distributions docs into multiple pages
+module: docs	tensor backward type hints clarification
+module: docs	tensor indexing and slicing documentation should explicitly state that indexing follows numpy semantics and link to the numpy indexing documentation 
+module: docs	tensor logit s signature in doc misses eps argument
+module: docs	tensor register hook   source link broken
+module: docs	the current example for torch mode is imho confusing and has room for improvement 
+module: docs	the document does not emphasize hidden range in nn embedding
+module: docs	the document does not emphasize hidden range in nn maxpool d
+module: docs	the document style is inconsistent with other documents  and the parameter type is not clearly highlight
+module: docs	the torch sparse document s typo error
+module: docs	theme update
+module: docs	there is no developer documentation about getting started with mps native debugging
+module: docs	top level glossary for users  not contributers 
+module: docs	torch bitwise xor argument  other  documentation wrong
+module: docs	torch bucketize doc typo on the left boundary when  right true 
+module: docs	torch cuda amp  remove spmd ddp doc portion
+module: docs	torch cuda floattensor   normal    generate  partially  different sample on different gpu machines
+module: docs	torch cuda is available   return false
+module: docs	torch cuda set per process memory fraction   does not perform vram isolation
+module: docs	torch device missing doctring
+module: docs	torch distributions multinomial multinomial  an example mistake of docs  
+module: docs	torch empty produces incorrect tensors with layout sparse csr sparse csc on the cpu
+module: docs	torch empty strided argument  size and  stride  documentation wrong
+module: docs	torch func documentation for trees
+module: docs	torch hstack should raise an error when tensor is   dimensional
+module: docs	torch linalg lstsq doc arguments error
+module: docs	torch min document not up to date
+module: docs	torch mm produces wrong result on cpu when using in place computation
+module: docs	torch nn convtranspose d s example in docstring is invalid
+module: docs	torch nn functional avg pool       d error message does not match what is described in the documentation
+module: docs	torch nn replicationpad     d supports more input dimension than are written on documentation
+module: docs	torch nn upsample s error message is inconsistent with the documentation
+module: docs	torch nn utils rnn unpad sequence modifies arguments in place
+module: docs	torch pinverse produces wrong output 
+module: docs	torch randn signature is missing generator
+module: docs	torch searchsorted error message and documentation is unclear
+module: docs	torch sum promotes integral tensors to int   
+module: docs	torch tensor transpose   contiguous   on dimension of size   gives  wrong stride
+module: docs	torch unique   messes around with order even if sorted false
+module: docs	transformer initialization
+module: docs	typo in example of torch linalg solve triangular
+module: docs	update use deterministic algorithms documentation and tests to include nn functional counterparts for all nn modules
+module: docs	view as real and split with sizes links in tensor views docs are broken
+module: docs	wrong illustration in readme md
+module: docs	wrong with code coverage readme md
+module: nn	 bug  libtorch bug in nn  multiheadattention and nn  transformer
+module: nn	 complex  dropout and it s variants should support complex tensors
+module: nn	 discussion  integrate widely used utilities from fvcore into the core repo
+module: nn	 docs  f interpolate uint  input  mode    bicubic        overshoot behavior  adjust the note in docs to explain that for uint  saturating store is done and no manual clamp is needed or mention that bicubic is not supported for uint  inputs
+module: nn	 feature request   ux proposal  min max linear normalization to be supported in f normalize  or in a new function 
+module: nn	 feature request  support dataclass derivations of nn module
+module: nn	 fix  accounting for dilation in pool padding assertion
+module: nn	 minor bug  should consume prefix in state dict if present change ordering of keys 
+module: nn	 rfc  make more operations inplace  gelu  batchnorm  layernorm 
+module: nn	a segment fault can be triggered in torch  grid sampler  d cpu fallback
+module: nn	adaptiveavgpool d throws different exceptions when using the gpu
+module: nn	adaptivemaxpool documentation is not detailed
+module: nn	add bc test for load state dict on optimizerinfos and moduleinfos
+module: nn	add persistent option to nn module buffers 
+module: nn	add the possibility to pass a generator to gumbel softmax
+module: nn	adding label smoothing option to nn bceloss  and nn bcewithlogitsloss 
+module: nn	adding maximal update parametrization   p  to torch nn init
+module: nn	adds syntactic sugar for select which backend to choose for sdpa
+module: nn	allow passing dict  as opposed to ordereddict  to nn sequential
+module: nn	asking for a lazymodulemixin warning
+module: nn	attributeerror   linearpackedparams  object has no attribute   modules 
+module: nn	avoid self loops on module creation
+module: nn	bceloss and bcewithlogitsloss differ when one of the input logits is float  inf  
+module: nn	bcewithlogitsloss  check if labels   targets are within zero and one
+module: nn	best practices clarification for initialization strategies
+module: nn	binary cross entropy  loss  seems to be giving incorrect values for very negative logits
+module: nn	caching a model s weights and state dict to disk to save ram
+module: nn	calling ops aten embedding bag   function got silent crash
+module: nn	changing behavior of module to   to better support mixed real  and complex valued parameters
+module: nn	continuous dropout layer
+module: nn	conv transpose is not similar to nn grad conv input when output padding is passed with non default values 
+module: nn	copy deepcopy does not copy gradients of nn parameter
+module: nn	creating gaussian mixture models with multivariatenormal
+module: nn	crossentropyloss computes softmax always across the second dimension
+module: nn	deepcopy of lazylinear fails
+module: nn	deprecate hardtanh type promotion behavior 
+module: nn	disabled test backward nn functional conv d cuda float      main   testcompositecompliancecuda 
+module: nn	disabled test conj view nn functional conv d cuda complex      main   testmathbitscuda 
+module: nn	disabled test conv d dilated cuda tf      main   testnn 
+module: nn	disabled test cross entropy large tensor reduction none cuda    main   testnndevicetypecuda 
+module: nn	disabled test cross entropy large tensor reduction sum cuda    main   testnndevicetypecuda 
+module: nn	disabled test memory format nn convtranspose d cuda complex      main   testmodulecuda 
+module: nn	disabled test non contiguous tensors nn convtranspose d cuda complex      main   testmodulecuda 
+module: nn	disabled test noncontiguous samples nn functional conv d cuda complex      main   testcommoncuda 
+module: nn	discrepancy in output shape for batch norm inference mode between cuda and cpu
+module: nn	documentation  torch nn functional embedding docs could more clearly state the requirement that weight be a  d tensor
+module: nn	dropout signature inconsistent between torch dropout  torch nn dropout and torch nn functional dropout
+module: nn	expandedweights can t handle modules with tied weights
+module: nn	extends the functionality of  nn batchnorm d 
+module: nn	f adaptive avg pool d input     returns infinity in half precision
+module: nn	f binary cross entropy with logits unexpected behaviour
+module: nn	f conv d and f conv d propagate nan s incorrectly when minibatch     
+module: nn	f conv d input  weight  bias  self stride  runtimeerror  cudnn error  cudnn status mapping error
+module: nn	f pad will accept   and negative values as parameter
+module: nn	feature request  deterministic algorithm for maxpool d
+module: nn	flip default on add zero attn in torch nn multiheadattention to true
+module: nn	found nn lazybatchnorm d    has inconsistency bug between gpu and cpu testing
+module: nn	fractionalmaxpool d internal assert failed when computing jacrev
+module: nn	frozen module for transfer learning 
+module: nn	geglu activation
+module: nn	grid sample and mode  bilinear  induces errors at discrete pixel locations
+module: nn	grid sample with relative grid
+module: nn	group losses in a common namespace
+module: nn	groupnorm cpu gpu parity tests fail with pretty large differences
+module: nn	groups parameter for nn linear
+module: nn	have an option to disable fast path in transformerencoderlayer 
+module: nn	higherorderop graph capturing is wrong for buffer mutation
+module: nn	hooks not working in version       cu   
+module: nn	implement device parameter in dropout d
+module: nn	implement generic batch normalization layer 
+module: nn	implement l  and l  gradient as hooks with the option of changing the weight decay value 
+module: nn	improve error message in multimarginloss for inconsistent target size
+module: nn	improving clarity in the docs of different losses
+module: nn	inconsistency between cpu and gpu for linear   layer with input size  
+module: nn	inconsistency of state dict loading across devices
+module: nn	incorrect documentation in gumble softmax function 
+module: nn	incorrect error message ordering for nn adaptiveavgpool d with incorrect output size
+module: nn	incorrect gradient calculation for upsample nearest on cuda
+module: nn	incorrect output shape for nn avgpool d with ceil mode true
+module: nn	increasing batch size makes network forward      times slower
+module: nn	instancenorm d throws bad warning
+module: nn	interpolation artifacts when using nn interpolate  trilinear mode for  d label images
+module: nn	is there a recommended implementation of yuv rgb for the current torch 
+module: nn	iterative global pruning cause gpu memory leak
+module: nn	lstm built in dropout not reproducible on gpu
+module: nn	lstm rnn operation agnostic
+module: nn	make backward function explicit in a layer which is a combination of some ops
+module: nn	make standard container classes satisfy container protocols 
+module: nn	max pool with negative integer inputs and channels last memory layout gives the wrong values
+module: nn	maxpool d output shapes can be negative when ceil mode true
+module: nn	minor inconsistency in description of attn output weights in multiheadattention docs
+module: nn	misleading error message in multilabel margin loss when passing incompatible tensor dimensions
+module: nn	model named buffers   fails if module not hashable 
+module: nn	module parameters submodules can be shadowed by class attributes silently
+module: nn	mseloss fails to compute the gradients when inputs have different dtype
+module: nn	multi scale deformable attention support
+module: nn	nandense layer for missing values
+module: nn	nightly torch compile fails with dynamically patched nn module forward
+module: nn	nn channelshuffle d
+module: nn	nn conv function to compute conv formula
+module: nn	nn cosinesimilarity returns value larger than  
+module: nn	nn crossentropyloss error out when the sample size is large
+module: nn	nn crossentropyloss overflow with fp   and minibatch
+module: nn	nn crossentropyloss with invalid target generates corrups memory eventualy leading to cuda error  an illegal memory access
+module: nn	nn interpolate scale factor floors output size with floating
+module: nn	nn lstm tolerates wrong input shape when hidden state isn t provided 
+module: nn	nn module to dtype  does not work for xlatensor
+module: nn	nn softmax should not allow default implicit unset dim constructor argument
+module: nn	optimize cudnn convolution out to reduce unnecessary memory allocation and copy
+module: nn	parameter gradient is not moved parameter is moved across devices
+module: nn	preserve weight g weight v accessors on new weight norm
+module: nn	propose to add constant padding mode to the torch nn functional grid sample function
+module: nn	provide a reset parameters   method for multiheadattention to support fsdp meta device initializtion
+module: nn	quadric layer
+module: nn	question about gru rnn lstm  outputs shape
+module: nn	raise runtimeerror faster when loading an object with a torch cuda tensor on a cpu only machine
+module: nn	revisit opinfo samples for nn functional max poolnd
+module: nn	rnn argument order
+module: nn	rnn documentation is confusing   wrong
+module: nn	rrelu doc doesn t specify the eval mode behaving just like leakyrelu
+module: nn	runtimeerror  expected scalar type bfloat   but found float with torch nn transformerencoder
+module: nn	sample weighted batchnorm d
+module: nn	scipy ndimage find objects
+module: nn	simplify module backward hooks to use multi grad hooks instead
+module: nn	soft margin loss gives wrong gradient when target with dtype uint 
+module: nn	softmax  logsoftmax are over parameterized
+module: nn	softmax to handle dimensions comprised of  inf
+module: nn	spectral normalization can not be applied to conv       d
+module: nn	stateless functional call doesn t work with nn dataparallel
+module: nn	strided tensor in backward cause uninitialized output
+module: nn	subclasses with unwrapping   torch dispatch   impls as parameters
+module: nn	support for csr tensor with nn layers
+module: nn	support for eval in functional call
+module: nn	support tensor subclasses as uninitializedparameters
+module: nn	syncbatchnorm does not work on cpu
+module: nn	system memory leak when using different input size of torch nn conv d
+module: nn	test conv backend tests ooming in      slow gradcheck ci
+module: nn	the difference between channels last backward and channels first backward of avgpool d on cuda is too large
+module: nn	the difference between input grad computed by channels last backward and the input grad computed by channels first backward of hardswish on mps is too large
+module: nn	the document does not emphasize illegal value in nn bilinear
+module: nn	the type of parameter  p  in torch nn tripletmarginloss wrong
+module: nn	torch  weight norm with specified dim returns wrong output
+module: nn	torch nn ctcloss doesn t seem to properly support noncontiguous inputs for  d target with target dtype torch long
+module: nn	torch nn ctcloss trigger heap buffer overflow under addresssanitizer
+module: nn	torch nn ctcloss trigger out of bound read under compute sanitizer
+module: nn	torch nn functional avg pool       d error message does not match what is described in the documentation
+module: nn	torch nn functional cross entropy different loss when providing one hot target and class weights
+module: nn	torch nn functional linear fails for multi dimensional bias from torch     
+module: nn	torch nn functional log softmax  parameter   stacklevel  undocumented
+module: nn	torch nn functional max pool d outputs inf
+module: nn	torch nn functional multilabel margin loss cuda lacks checking of  out of bound 
+module: nn	torch nn functional one hot only works for int  
+module: nn	torch nn gru runs long time  when num layers is large
+module: nn	torch nn hardtanh allows min val   max val
+module: nn	torch nn init functions with generator argument
+module: nn	torch nn kldivloss fails test grad and test gradgrad
+module: nn	torch nn layernorm abort with  invalid device ordinal  error
+module: nn	torch nn lazylinear crash when using torch bfloat   dtype in pytorch        and       
+module: nn	torch nn maxunpool d get negative size tensor
+module: nn	torch nn pixelshuffle error message wrong
+module: nn	torch nn replicationpad     d supports more input dimension than are written on documentation
+module: nn	torch nn transformerencoderlayer missing exception description information 
+module: nn	torch nn tripletmarginloss margin can be less than  
+module: nn	torch nn upsample s error message is inconsistent with the documentation
+module: nn	torch nn utils clip grad norm    causes h d sync with foreach ops 
+module: nn	torch s layernorm and adam optimizer vs those in tensorflow
+module: nn	torch var mean is slower than layer norm
+module: nn	tracing per param sharding fsdp  removablehandle    removablehandlevariable
+module: nn	unable to continue adding modules to nn sequential after using del method
+module: nn	unable to programmatically update models using references from model named modules     requires additional parsing
+module: nn	unrelated error messages with torch nn adaptiveavgpool d
+module: nn	upsample bilinear d   received an invalid combination of arguments
+module: nn	when padding is big int  torch nn functional fold runs too long and can t return result
+module: nn	will nn unfold support non  d tensor input in future version 
+module: numpy	 complex  torch abs  does not match numpy
+module: numpy	 discussion  have pytorch functions support python scalars  like numpy    introduce convenience constants like torch pi and torch e and maybe analogue of scipy constants namespace
+module: numpy	 discussion  support   round   magic
+module: numpy	 docs  unclear arg spec for torch full
+module: numpy	 dynamo  fix np issubdtype
+module: numpy	 dynamo  tests using kstest are being killed in ci
+module: numpy	 feature request  add batched matrix support for torch diag
+module: numpy	 feature request  dtype argument for torch sign
+module: numpy	 feature request  exponential moving average  ema  of a tensor across a dimension
+module: numpy	 feature request  numpy append   numpy insrt   numpy delete equivalents and implement dynamic arrays  reallocate storage with a surplus 
+module: numpy	 feature request  support like  argument in tensor factory methods
+module: numpy	 feature request  support tensor creation from objects that implement the   array   interface
+module: numpy	 feature request  torch as tensor to support any object that numpy s asarray or array can consume  consume   array interface   
+module: numpy	 feature request  torch clamp on booltensors
+module: numpy	 feature request  torch scan  also port lax fori loop   lax while loop   lax associative scan and hopefully parallelized associative scans 
+module: numpy	 fr  bool tensor should support basic arithmetics
+module: numpy	 h   v   d split methods are missing
+module: numpy	 indexing  incoherent tensor indexing for nested lists
+module: numpy	 numpy   array failes to keep original storage around
+module: numpy	 numpy  mean   nanmean should support int dtypes
+module: numpy	 numpy  missing tensor scalar support for multiple binary ops
+module: numpy	 numpy  round and trunc not supported for integral type while python and numpy supports them
+module: numpy	 numpy  torch ceil and torch floor don t support integer inputs while numpy does
+module: numpy	 numpy  torch nonzero is similar to np argwhere not np nonzero
+module: numpy	 numpy compat  torch stack and torch tensor doesn t support nested list tensors  numpy does support    at least document the difference in the error message
+module: numpy	 pt        torch  numpy   fn broke for some scenario
+module: numpy	 rfc  support memoryview for tensors
+module: numpy	 tensor  object has no attribute  astype 
+module: numpy	 torch  numpy  implement ndarray tobytes
+module: numpy	 ux  proposal to have t       transpose          since batches are very frequent
+module: numpy	accessing elements of tensor with multi dimensional index results indexerror
+module: numpy	add complex support for torch unique
+module: numpy	add compute residuals flag for torch linalg lstsq
+module: numpy	add numpy like  order  argument to reshape
+module: numpy	add support for bfloat   in torch from numpy  
+module: numpy	adding entropy function analogous to scipy
+module: numpy	advanced indexing  allow combining boolean   integer index
+module: numpy	allow   array   to automatically detach and move to cpu
+module: numpy	allow f pad mode    reflect   when shape    pad
+module: numpy	apparent memory leak with torch as tensor
+module: numpy	as tensor and negative strided np arrays
+module: numpy	attempting to concatenate scalar tensors throws a runtime error
+module: numpy	better numpy api  interoperability between ml frameworks 
+module: numpy	bfloat   tensor  numpy   support
+module: numpy	boolean indexing of an ndarray with a torch tensor mask breaks for size  
+module: numpy	boolean mask   ellipsis lead to incorrect indexing
+module: numpy	bytearray tensor  behaves very differently from bytearray tensor numpy   
+module: numpy	bytes      support of torch tensor does not match numpy   it would be nice to support tensor tobytes   as alias
+module: numpy	can we rewrite numpy operators to pytorch operators 
+module: numpy	cannot cast float   to float  
+module: numpy	converting numpy dtype to torch dtype when using as tensor
+module: numpy	creating numpy array with dtype object of pytorch tensors fails
+module: numpy	cumulative integration 
+module: numpy	custom datatypes in tensors
+module: numpy	degenerate ranges are allowed in numpy  but not in pytorch 
+module: numpy	deprecate torch  min max median mode  to only return values and not indices
+module: numpy	different behavior for complex numbers operations with numpy
+module: numpy	dimension argument names in torch diag embed diagonal vs  transpose transpose 
+module: numpy	disabled test numpy non writeable cpu    main   testnumpyinteropcpu 
+module: numpy	documentation for torch finfo doesn t match implementation
+module: numpy	drop deprecated behavior from numpy style t
+module: numpy	edge case  cpu bool abs is not supported
+module: numpy	einsum  jk ijkl  il  is    x slower than numpy
+module: numpy	equal nan keyword not implemented for complex torch isclose
+module: numpy	error  conversion from  std  vector at  tensor   to non scalar type  at  tensor  requested
+module: numpy	factorial   binomial coefficient
+module: numpy	fancy indexing bug when combining masks with indexes
+module: numpy	feature request  add a rounding mode to round
+module: numpy	find a good namespace home for torch  assert async
+module: numpy	function request  np copy  alias of clone  
+module: numpy	function request  np interp
+module: numpy	function request  scipy interpolate interp d
+module: numpy	function request  scipy interpolate rectbivariatespline
+module: numpy	function request  scipy interpolate regulargridinterpolator
+module: numpy	function request  scipy ndimage map coordinates
+module: numpy	function request  scipy ndimage zoom
+module: numpy	function request  scipy stats pearsonr
+module: numpy	half type promotion with numpy arrays is incorrect
+module: numpy	have the possibility to reduce a tensor with median on more than one specified dimension
+module: numpy	implement to numpy method to speed up matplotlib with pytorch arrays
+module: numpy	implementation of many complex functions is fast but inaccurate in libc  
+module: numpy	importing numpy makes tensor min max crash
+module: numpy	inconsistent behavior between numpy exp and torch exp on cpu for complex numbers
+module: numpy	inconsistent numpy indexing
+module: numpy	inductor stable baselines assertion errors
+module: numpy	looking for a more convenient way to getter value of the upper lower triangular matrix into  d
+module: numpy	lstm s input h  and c  bug
+module: numpy	make axes selection keyword arguments in torch diagonal and torch transpose consistent
+module: numpy	make searchsorted and bucketize api consistent
+module: numpy	many reduction operators do not support reducing over multiple dimensions
+module: numpy	memory usage of torch nn functional interpolate increased with v      when run on numpy input
+module: numpy	missing doc for torch segment reduce
+module: numpy	multinomial without replacement produces samples that have zero probability
+module: numpy	multiple dimensions support for torch max
+module: numpy	normal like operator
+module: numpy	numpy     support
+module: numpy	on the correctness of torch signal windows cosine
+module: numpy	operating on boolean torch tensor and numpy array casts to unit 
+module: numpy	out variant for tensor bitwise and  exists for torch bitwise and    bitwise friends
+module: numpy	please add  dim  feature for function  torch masked select 
+module: numpy	possible issue with memory allocation 
+module: numpy	process get killed when running torch normal
+module: numpy	provide an issubdtype api
+module: numpy	pytorch model load failure in gunicorn with gevent workers
+module: numpy	pytorch nan behavior and api design
+module: numpy	pytorch s rot   returns a new tensor  inconsistent with numpy s returning a view
+module: numpy	quantile is limited to    million elements and have poor performance 
+module: numpy	reduce with any    all    median   over multiple dimensions
+module: numpy	reductions tracking issue
+module: numpy	reset mask for torch cumsum 
+module: numpy	result type doesn t take dtypes and doesn t match numpy
+module: numpy	return index option for torch unique
+module: numpy	reversing along a dimension  similarly to numpy
+module: numpy	rfc   what s in a  numpy  name     changing pytorch operator names
+module: numpy	rfc  identify analogous numpy operators when documenting pytorch operators
+module: numpy	runtime error when passing dim as none in torch squeeze  and tensor squeeze 
+module: numpy	runtimeerror   log     vml cpu  not implemented for  half 
+module: numpy	scatter does not accept scalar src 
+module: numpy	segfault when using misaligned data pointer  from joblib 
+module: numpy	serialising torch bool generates a warning about np bool being deprecated 
+module: numpy	should we be upcasting integral types to int   in torch sum and torch prod 
+module: numpy	squared   norm pdist  as available in scipy   faiss 
+module: numpy	support  symmetric  reflection padding
+module: numpy	support array interface    array interface   attribute 
+module: numpy	support complex numbers in at  nan to num 
+module: numpy	support expand dims
+module: numpy	support tensor cumsum   for   dim tensors
+module: numpy	support torch mean for booltensors and other integer tensor inputs  without manual upcasting and hopefully without hidden upcasting 
+module: numpy	tensor indexing and slicing documentation should explicitly state that indexing follows numpy semantics and link to the numpy indexing documentation 
+module: numpy	tensordot does not support bool
+module: numpy	test failure  testunaryufuncscpu test reference numerics normal cos cpu float   on s   x
+module: numpy	the uniform operator param names in the c   impl use python keywords
+module: numpy	torch angle differs from np angle for    
+module: numpy	torch any and torch all map uint     uint  but should map uint     bool
+module: numpy	torch as tensor np array  is sometimes much faster than torch tensor np array 
+module: numpy	torch cartesian prod inconsitent return shape for one input tensor
+module: numpy	torch clamp does not clamp out of    from   when ran on the cpu
+module: numpy	torch cross is divergent from np cross
+module: numpy	torch diag unexpectedly fails
+module: numpy	torch dot throws an error for input tensors of different dtypes
+module: numpy	torch equal is divergent from np equal
+module: numpy	torch float    datatype
+module: numpy	torch histogram has wrong output dtype and doesn t support integer inputs
+module: numpy	torch linspace tensor support
+module: numpy	torch meshgrid is divergent from np meshgrid
+module: numpy	torch mode when input has nans
+module: numpy	torch mul is not consistent with torch multiply
+module: numpy	torch nonzero t  as tuple      does not work with the jit because the as tuple signatures are not exposed properly
+module: numpy	torch pow returns incorrect value for    j
+module: numpy	torch pow tensor  tensor  throws runtimeerror for dtype bool
+module: numpy	torch put is divergent from np put
+module: numpy	torch sign is divergent from numpy sign on nan
+module: numpy	torch special tracking issue
+module: numpy	torch split is divergent from np split
+module: numpy	torch sqrt for negative values should either return complex tensors or clearly throw a domain error warning
+module: numpy	torch tensor random  is divergent from numpy s np random random
+module: numpy	torch tensor repeat is divergent from np repeat
+module: numpy	torch transpose is divergent from np transpose
+module: numpy	torch tril indices is incompatible with np tril indices
+module: numpy	torch unique acting up for a binary tensor
+module: numpy	torch unique x  dim    return inverse true  returns inverse for only the last sub tensor along dim
+module: numpy	torch var and torch std are not compatible with np var and np std
+module: numpy	tracker for torch  numpy errors under dynamo
+module: numpy	turn indexing with a scalar tensor into an copy into a view and avoid a d h synchronization 
+module: numpy	typeerror  got unsupported scalartype bfloat  
+module: numpy	unexpected results in pytorch tensor operations with python scalars
+module: numpy	valueerror issued instead of typeerror when tensor is cast to a scalar
+module: numpy	vertices torch matmul vertices unsqueeze     rotations init   runtimeerror  cuda error  cublas status execution failed when calling  cublassgemmstridedbatched in centos
+module: numpy	wip  fix compiling np array list of arrays 
+module: numpy	wrong implementation of method log prob in torch distributions negative binomial
+module: numpy	wrong results for multiplication of non finite complex numbers with real numbers
+module: onnx	 aten  affine grid generator  to onnx opset version    is not supported
+module: onnx	 aten  unique consecutive  to onnx opset version    is not supported
+module: onnx	 dyanmo  pre allocate flag should be a onnxruntime inference session level attribute
+module: onnx	 dynam  a graph pass in dynamo onnxruntime backend needs revision
+module: onnx	 dynamo  integration exporter s diagnostic system into onnxruntime backend
+module: onnx	 dynamo  onnxruntime backend  dort  requires some guards to re partition extracted by dynamo
+module: onnx	 dynamo  onnxruntime backend shold allow external allocator
+module: onnx	 feature request   onnx  support quantlinear dequantlinear float   inputs  opset   and maybe  backport  support them for opset   
+module: onnx	 fx  onnx  exporter  failed to export traced fx graph to onnx model
+module: onnx	 onnx   gfpganv  pth to onnx conversion error
+module: onnx	 onnx  adaptivemaxpool d can not convert to globalmaxpool
+module: onnx	 onnx  aten  cumprod cannot be exported to onnx
+module: onnx	 onnx  discuss improvements to diagnostic public api
+module: onnx	 onnx  dynamo  parameter to export flat graphs
+module: onnx	 onnx  dynamo export  onnx  celu half unsupported but export passed w  invalid model when opmath disabled
+module: onnx	 onnx  execute onnx runtime with iobindings through onnxprogram   call  
+module: onnx	 onnx  exporter  maintain support for exporter arguments export params and keep initializers as inputs
+module: onnx	 onnx  exporting the operator  aten  exponential  to opset version    is not supported
+module: onnx	 onnx  exporting the operator  aten  sparse coo tensor  to onnx opset version    is not supported
+module: onnx	 onnx  expose the graph module in torch onnx exportoutput
+module: onnx	 onnx  extend test fx op conistency py to take exportedprogram converter
+module: onnx	 onnx  figure out aot inline strategy for dort   onnxrt backend
+module: onnx	 onnx  fix test fx op consistency py test failure when running on torch built with cuda
+module: onnx	 onnx  float  support
+module: onnx	 onnx  fx exporter  test pytorch onnx onnxruntime py  tracker
+module: onnx	 onnx  fx produce valid node names in models
+module: onnx	 onnx  handle absence of onnxscript module in pytorch requirements txt
+module: onnx	 onnx  in place additon not being functionalized by torch onnx dynamo export
+module: onnx	 onnx  investigate nn functional nll loss skip xfail reason
+module: onnx	 onnx  isolate torchscript based code base from dynamo based onnx exporter for easier deprecation
+module: onnx	 onnx  keep functional ops as functions in dynamo exported onnx
+module: onnx	 onnx  onnx doesn t support exporting non persistent buffer included models in fakemode
+module: onnx	 onnx  onnx export fails when combining tracing and scripting in the presence of symbolic functions
+module: onnx	 onnx  onnx export of simple quantized model fails
+module: onnx	 onnx  onnxfunction of aten index put bool operation isn t consistent to aten  index put inx fx exporter
+module: onnx	 onnx  opset    support for torchscript exporter
+module: onnx	 onnx  provide an option to not generate report dynamo export sarif
+module: onnx	 onnx  refactor op consistency tests
+module: onnx	 onnx  refactor test fx op consistency py
+module: onnx	 onnx  refactor xfail api to handle conditional failure scenarios
+module: onnx	 onnx  replace torchscript with new graph building
+module: onnx	 onnx  retire fxsymbolictracer in fx exporter
+module: onnx	 onnx  scatter reduce does not support include self false
+module: onnx	 onnx  sort   argsort with stable argument specified cannot be exported to onnx
+module: onnx	 onnx  stft exportprogram error
+module: onnx	 onnx  support aten  linalg cholesky ex
+module: onnx	 onnx  support aten  linalg solve triangular
+module: onnx	 onnx  support aten  mt
+module: onnx	 onnx  support aten  var mean
+module: onnx	 onnx  support fake tensor mode on new dynamo based onnx exporter
+module: onnx	 onnx  test the new exporter with torchvision
+module: onnx	 onnx  track dynamic shapes integration for torch onnx dynamo export
+module: onnx	 onnx  typepromo  automate codegen type promotion rules
+module: onnx	 onnx  unsupportedoperatorerror  exporting the operator  aten  l  loss  to onnx opset version    is not supported
+module: onnx	 onnx unsupported  onnx export of convolution for kernel of unknown shape
+module: onnx	 oom  unable to convert   b model to onnx  using  x a    s
+module: onnx	 release      onnx store user model to simplify onnxprogram  adapt torch     call    ap
+module: onnx	 torch onnx  exporting the operator  quantized  conv transpose d  to onnx opset version    is not supported 
+module: onnx	 we don t have an op for aten  bitwise and but it isn t a special case   when exporting nms operation as onnx 
+module: onnx	 wip  make onnx opschema function matcher more robust
+module: onnx	add dynamic shape tests for important models to guard against regression
+module: onnx	add support onnx opset   
+module: onnx	an error happend when i convert pytorch model to onnx
+module: onnx	aten  squeeze exported to onnx as an if node
+module: onnx	attribute  kernel shape  is expected to have field  ints  when exporting a module with list tensor  inputs outputs
+module: onnx	bad conversion from torch split  d tensor splitsize list  to splittosequence op  onnx export 
+module: onnx	build fails with use system onnx off  c     features are used while pytorch is building with the c     option
+module: onnx	can t export a pth model to onnx  runtimeerror  couldn t lower all tuples 
+module: onnx	can t export onnx model from a torch script model
+module: onnx	cannot export a quantized model that permutes a quantized tensor to onnx
+module: onnx	cannot export mivolo model into onnx format using torch onnx export
+module: onnx	cannot export quantized model to onnx  cannot call qscheme on unknownquantizer
+module: onnx	constant output from exported onnx
+module: onnx	cov onnx error
+module: onnx	create static analysis tool to improve onnx export success
+module: onnx	deformable convolution export to onnx
+module: onnx	document  wrap fx args as onnxscript args
+module: onnx	dynamo export  unsupported fx nodes  aten pixel shuffle default
+module: onnx	dynamo export successfully export model but fails at onnx checker check model
+module: onnx	error in onnx during export glu with opset   
+module: onnx	error saving monai pytorch model to onnx
+module: onnx	error when building with use tensorrt  
+module: onnx	error when exporting to onnx for albert base v   issue with attention mask
+module: onnx	export list tuple type inputs with dynamic size
+module: onnx	export of quantized  linear relu operator not supported with torch onnx export
+module: onnx	export to onnx error  runtimeerror  arrayref  invalid index index      length    
+module: onnx	export transformer to onnx results in symintarrayref error
+module: onnx	exporting the operator   aten  fused moving avg obs fake quant   to onnx opset version     is not supported
+module: onnx	exporting the operator  aten   transformer encoder layer fwd  to onnx opset version    is not supported
+module: onnx	exporting the operator  aten  grad  to onnx opset version    is not supported 
+module: onnx	exporting the operator  aten  scatter reduce  to onnx opset version    is not supported
+module: onnx	failed to convert model that has leakyrelu to onnx
+module: onnx	fix linalg vector norm onnx export with wrong output dtype
+module: onnx	get error   tuple index with non constant index  when exporting a model to onnx format
+module: onnx	getting more human readable input and output names in the onnx model exported by torch
+module: onnx	gradients  jacobian  in inference
+module: onnx	groupnorm onnx export does not reproduce same output
+module: onnx	how to export gnn with dict inputs correctly 
+module: onnx	i encountered an error while trying to save the stylegan  network as torch  onnx  export
+module: onnx	incompatible dimensions error for fusedmatmul
+module: onnx	inconsistencies in onnx exporting of operation torch full  
+module: onnx	incorrect output shape for nn avgpool d with ceil mode true
+module: onnx	input names provided three but onnx recognizes two inputs only
+module: onnx	introduce  backend  concept to torch export export api
+module: onnx	is there a recommended implementation of yuv rgb for the current torch 
+module: onnx	large discrepancies between pytorch and onnxruntime inference
+module: onnx	libtorch vs  onnx tensorrt  show different object detection results
+module: onnx	llama     b model convert from pytorch to onnx format
+module: onnx	make torch onnx utils  optimize graph use several cpu cores
+module: onnx	nn batchnorm d layers cause redundant identity operators in exported onnx
+module: onnx	onnx converter does not properly trace dynamic axis through graph
+module: onnx	onnx export   miscompilation for complex valued operators
+module: onnx	onnx export  transformerencoder is exported with fixed input dims
+module: onnx	onnx export constant folding messes up with shared weight deduplication
+module: onnx	onnx export error
+module: onnx	onnx export error when exporting vision transformer model from pytorch to onnx format
+module: onnx	onnx export fails  model input type is dict str  tensor 
+module: onnx	onnx export fails if do constant folding false
+module: onnx	onnx export jit script shapeinferenceerror unexpected axis value     expected range        
+module: onnx	onnx export of torch nn transformer still fails
+module: onnx	onnx export process  failed to keep consistence of input names specified
+module: onnx	onnx export produces hundreds of weight bias matmul etc  files alongside the  onnx file  and the  onnx file seems to be incorrect 
+module: onnx	onnx exporter issue  fails to add conversions exporting t  transformer model
+module: onnx	onnx fx based exporter documentation tutorial topics for pytorch    
+module: onnx	onnx model different to pytorch and jit trace output
+module: onnx	onnx model producing different results compared to original pytorch and jit traced model
+module: onnx	onnx opset    gridsample does not support  d volumetric input tensor
+module: onnx	onnx runtime error
+module: onnx	onnx torch modelproto exceeded maximum protobuf size of  gb
+module: onnx	onnx torchdynamo exporter    ability to export and load onnx files without parameters
+module: onnx	onnxrt fails with compilations
+module: onnx	onnxruntime outputs numerically incorrect results for mixed precision models 
+module: onnx	please verify        onnx release candidate on testpypi
+module: onnx	proposal   capture  unified api for capturing functions across  fx  proxy tensor  dynamo 
+module: onnx	pytorch      detection models from torchvision don t work with onnx and tensorrt backends
+module: onnx	pytorch dynamic quantized model failed to convert to onnx
+module: onnx	pytorch member variable not working after converting to onnx format
+module: onnx	quant resnet convert onnx error  orch onnx errors unsupportedoperatorerror  exporting the operator  aten  quantize per channel  to onnx opset version    is not supported
+module: onnx	quantized transformer onnx export fails
+module: onnx	repeat interleave does not support tensor indexes on different devices while repeat does
+module: onnx	revisit onnxprogram api due to fake tensor support and additional model with state dict addition
+module: onnx	runtime error outernode  outputs   size      node  inputs   size   internal assert failed when exporting custom operator
+module: onnx	runtimeerror    internal assert failed at     torch csrc jit ir alias analysis cpp       please report a bug to pytorch  we don t have an op for aten  full but it isn t a special case   argument types  int    bool  nonetype  nonetype  device  bool 
+module: onnx	runtimeerror   map base  at when exporting squeeze
+module: onnx	runtimeerror  nyi  named tensors are not supported with the tracer
+module: onnx	some onnx tests have been disabled because of new tensor split signature
+module: onnx	support onnx export for aten  select backward and aten  slice backward
+module: onnx	test pytorch onnx onnxruntime cuda py is not run in ci
+module: onnx	torch      onnx scope constant name not correct 
+module: onnx	torch  dynamo export raises unexpected type in sourceless builder  class  nemo core neural types elements voidtype   for torchaudio model
+module: onnx	torch model to onnx conversion success but failed when inference
+module: onnx	torch onnx dynamo export functionalization does not support aten add  tensor
+module: onnx	torch onnx errors checkererror  the model does not have an ir version set properly 
+module: onnx	torch onnx errors onnxexportererror  unsupported  onnx export of operator unsafe chunk  unknown dimension size 
+module: onnx	torch onnx export a fp   model but get the output tensor fp  
+module: onnx	torch onnx export causes floating point exception with core dump for empty slice assignment
+module: onnx	torch onnx export crashes on reducemax operator with onnx opset   
+module: onnx	torch onnx export does not respect nn module forward api when using export modules as functions true
+module: onnx	torch onnx export does not support divisor override in avgpool d
+module: onnx	torch onnx export does not trace all outputs for the hf bloom model
+module: onnx	torch onnx export error
+module: onnx	torch onnx export error       runtimeerror  expected all tensors to be on the same device  but found at least two devices  cpu and cuda     when checking argument for argument index in method wrapper cuda  index select 
+module: onnx	torch onnx export failed  torch onnx errors symbolicvalueerror  unsupported  onnx export of convolution for kernel of unknown shape
+module: onnx	torch onnx export failed for models with bernoulli operator
+module: onnx	torch onnx export has inconsistent results when exported on torch    and torch    
+module: onnx	torch onnx export is throwing runtimeerror  prim  tupleunpack not matched to tuple construct
+module: onnx	torch onnx export of module used positional and keyword arguments
+module: onnx	torch onnx export support sparse tensor format
+module: onnx	torch onnx export to support opset    
+module: onnx	torch onnx is not support baichuan  b  aten  unflatten  operator
+module: onnx	torchdynamo with onnxrt backend generating fake tensor errors
+module: onnx	typeerror   nonetype  object is not subscriptable  occurred when translating col im   can t translate torch nn functional fold in opset version    
+module: onnx	unable to build documents
+module: onnx	unable to run session using exported onnx model using dictionary input
+module: onnx	unrecognized attribute  axes for operator reducemean during onnx model conversion
+module: onnx	unsupported  onnx export of operator interpolate  with scales  error
+module: onnx	unsupported operator error  aten  to mkldnn export to onnx not supported
+module: onnx	unsupportedoperatorerror  onnxexportererror and symbolicvalueerror related to multiheadattention export to onnx with torch jit script
+module: onnx	upsample trilinear onnx
+module: onnx	using torch onnx export from file named onnx py results in cryptic error message
+module: onnx	valueerror  args contained   none s after flattening  when exporting a scriptmodule or scriptfunction  no args may be none because that breaks type propagation 
+module: onnx	we don t have an op for aten  view but it isn t a special case 
+module: onnx	when convert to onnx  the jit will merge th outputs  it results to we can t distinguish  what the outputs represents
+module: onnx	why nn upsample f interpolate followed by nn instancenorm d will report error  unsupported  onnx export of instance norm for unknown channel size  
+module: onnx	wrong onnx model from torch onnx export when using index add  function with duplicate index values 
+module: onnx	xfail if model type is exportedprogram and xfail if model type is not exportedprogram don t catch unexpected success
+module: optimizer	 amp scaler  unable to prevent  scheduler before optimizer step  warning
+module: optimizer	 be  evaluate and improve eager for loop optimizer memory perf
+module: optimizer	 cpp api  add adadelta  adamax  asgd  nadam  radam and rprop
+module: optimizer	 cta  let s stamp out flaky tests 
+module: optimizer	 discussion  should optimizers be also modules 
+module: optimizer	 dynamo   optim  complex  sparse are not on tracing testing path
+module: optimizer	 dynamo  annotate allow in graph with soft constraints
+module: optimizer	 dynamo  proposal   init values once api for initializing tensors and constants   without tracing the function in dynamo
+module: optimizer	 dynamo  unable to trace adamw optimizer when there is lr scheduler
+module: optimizer	 feature request  add to  cpu  and cuda method to optimizer
+module: optimizer	 feature request  show warning if optimizer zero grad   was not called before optimizer step  
+module: optimizer	 feature request  stochastic frank wolfe optimizer
+module: optimizer	 foreach copy  with scalar second arg
+module: optimizer	 optim  asgd   handling of complex params as real params  nan vs inf 
+module: optimizer	 optimizer perf  improve speed of  init group to c  
+module: optimizer	 proposal  use batched oprations to accelerate powersgd
+module: optimizer	 rfc  apex style fused optimizers in pytorch
+module: optimizer	 rfc  gossip sgd  as a ddp communication hook 
+module: optimizer	adam  fused true  issues
+module: optimizer	adam is     slower than sgd on apple metal 
+module: optimizer	adam not optimally implemented  unnecessary torch div
+module: optimizer	add  strict  flag to ignore missing parameters in optimizer load state dict
+module: optimizer	add a capturable impl to asgd single tensor
+module: optimizer	add an lrscheduler interface for torch schedulers 
+module: optimizer	add bc test for load state dict on optimizerinfos and moduleinfos
+module: optimizer	add clipnorm parameter to optimizers
+module: optimizer	add complex support for sparseadam and lbfgs optimizers
+module: optimizer	add core optimizer
+module: optimizer	add gamma to cosineannealingwarmrestarts so max lr can decrease in cycles
+module: optimizer	add kfac optimizer
+module: optimizer	add maximize support to lbfgs optimizer
+module: optimizer	add multischeduler
+module: optimizer	add optimistic mirror descent  omd 
+module: optimizer	add pct end parameter to onecyclelr
+module: optimizer	adding levenberg marquardt optimizer in pytorch
+module: optimizer	additon of levenberg marquardt optimizer in torch optim
+module: optimizer	after the adam optimizer used weight decay  the model became extremely slow when tested on the cpu  time from   seconds to    seconds 
+module: optimizer	also allow dicts as type of params  field in param groups of optimizers
+module: optimizer	arctan  fp   error when optimising
+module: optimizer	asynchronous cuda averagedmodel
+module: optimizer	backward pass with sparse parameters results in error  sparse division requires a scalar or zero dim dense tensor divisor 
+module: optimizer	bug in cosineannealingwarmrestarts
+module: optimizer	c   adagrad optimizer doesn t initialize parameter state
+module: optimizer	c   optimizer  remove warning on optimizer  size method
+module: optimizer	can we have a way to reset a scheduler back to epoch   
+module: optimizer	checkpoint restore of optimizers changes dtype of floating point state
+module: optimizer	checkpointing support for modularized optimizers
+module: optimizer	cosineannealingwarmrestarts lacks verbose functionality
+module: optimizer	cosineannealingwarmrestarts should use integer epoch
+module: optimizer	cosineannealingwarmrestarts with initial warm up and weight decay applied on consecutive cycles without warm up
+module: optimizer	ddp with cuda rpc failed with distributedoptimizer adagrad
+module: optimizer	deprecation warning on lr scheduler step num steps 
+module: optimizer	differentiable optimizers
+module: optimizer	disabled test foreach matches forloop adamw cpu float      main   testoptimrenewedcpu 
+module: optimizer	disabling all testoptim on the dynamo config
+module: optimizer	documentation and typing hints for rprop
+module: optimizer	documentation mistake of adam in v      
+module: optimizer	dynamo d test mixed device dtype needs higher tolerances for sgd and rmsprop
+module: optimizer	dynamo ing rprop  rmsprop  and adadelta misses incrementing step due to skipping  init group
+module: optimizer	dynamo sometimes hits the cache size limit due to the foreach flag in optimizer step  
+module: optimizer	enable skipped mps optimizerinfo tests
+module: optimizer	error in adam step    if capturable true  params and state steps must be cuda tensors 
+module: optimizer	expand learning rate scheduling to any optimization hyperparameter
+module: optimizer	extra arguments included in the doc where they are not actually presented in the source code
+module: optimizer	failure to resume from a normal  non fsdp  checkpoint due to the optimizer state dict rekey
+module: optimizer	feature request  remove optimizer lazy state initialization
+module: optimizer	float  object is not callable when using scheduler step   with multiplicativelr
+module: optimizer	functional interface for optimizers
+module: optimizer	fused adamw runtimeerror  params  grads  exp avgs  and exp avg sqs must have same dtype  device  and layout
+module: optimizer	fused torch optim adamw isn t faster than the unfused version
+module: optimizer	got error when train models with more than one param group in torch   
+module: optimizer	immediate mode api  with functional flavor  for optimizers
+module: optimizer	inconsistent behaviour when parameter appears multiple times in parameter list
+module: optimizer	inconsistent documentation about optimizer step closure 
+module: optimizer	inconsistent implementation on swa
+module: optimizer	incorrect documentation of sgd momentum
+module: optimizer	is this a bug  the values calculated according to the document isn t equal to the values calculated by framework
+module: optimizer	lack of newly raised optimizers
+module: optimizer	last epoch parameter of cycliclr and onecyclelr is not the number of epochs
+module: optimizer	lbfgs wolfe exceeds the maximum allowed iterations
+module: optimizer	learning rate change is not applied at designated iteration with a scheduler
+module: optimizer	legitimize harden differentiable optimizers in torch optim
+module: optimizer	lr scheduler  triangular  scale fn calculation is overflowed
+module: optimizer	lr scheduler get lr   bug
+module: optimizer	lr scheduler load state dict does not properly update scaling
+module: optimizer	lr scheduler py     list index out of range
+module: optimizer	lr scheduler step   behaviour with and without epoch parameter
+module: optimizer	minumul lr is never reached in
+module: optimizer	multiple learning rate scheduler for specific parameters groups
+module: optimizer	multisteplr with different gammas for each parameter group
+module: optimizer	need support and testing for adam optimizer for mps
+module: optimizer	new optimizer
+module: optimizer	no member named  beta   in  torch  optim  adamoptions 
+module: optimizer	nonliner conjugate gradient optimizer   hager zhang line search
+module: optimizer	onecyclelr argument pct start used as a proportion not percentage
+module: optimizer	onecyclelr s state dict includes a full reference to the optimizer
+module: optimizer	optim adam  step  default setting bug 
+module: optimizer	optim optimizer should copy  params  before modifying them
+module: optimizer	optimization with constraints for torch optim
+module: optimizer	optimizer  lion  in  symbolic discovery of optimization algorithms
+module: optimizer	optimizer closure  enable skip by returning none loss 
+module: optimizer	optimizer support via libtorch c   on android
+module: optimizer	optimizers should use learning rates passed as tensors directly
+module: optimizer	other overloads of  foreach clamp
+module: optimizer	out of place functional optimizers  functional optimizers may not be composite compliant
+module: optimizer	overlapping optimizer step   with ddp backward
+module: optimizer	overloads can perhaps be more performant 
+module: optimizer	pass epoch to sequentiallr and chainedscheduler
+module: optimizer	penalisation of bias and batchnorm parameters
+module: optimizer	pickling onecyclelr state dict   with an unpickleable optimizer will result in an error 
+module: optimizer	poor support of optimizer add param group
+module: optimizer	pytorch        test optim fails on nvidia a   
+module: optimizer	pytorch       high failure rate for test optim test nadam
+module: optimizer	re implement optimizer   repr  
+module: optimizer	reducelronplateau fails for negative input
+module: optimizer	reducelronplateau will throw indexerror  list index out of range with modified optimizer s param groups 
+module: optimizer	refactor precision handling in test test optim py
+module: optimizer	remove lr scheduler print lr
+module: optimizer	remove warning  and update documentation 
+module: optimizer	replace clone detach with detach clone
+module: optimizer	reset a torch optim optimizer
+module: optimizer	rmsprop documentation is confusing
+module: optimizer	rprop improvement tracker
+module: optimizer	rprop optimizer  unboundlocalerror  local variable  step size min  referenced before assignment
+module: optimizer	runtimeerror   needs dynamic casting func t   check iter  internal assert failed at     aten src aten native cpu loops h           please report a bug to pytorch 
+module: optimizer	runtimeerror  expected packed scalar tensor to be of dimension    got   instead 
+module: optimizer	rwkv   adam exp avg sq will change from positive to negative after loss backward  
+module: optimizer	save checkpoint error
+module: optimizer	sequentiallr cannot be used with reducelronplateau due to  step   not allowing for optional arguments
+module: optimizer	sequentiallr have a question and why it use step epoch 
+module: optimizer	sequentiallr object has no attribute   last lr 
+module: optimizer	sequentiallr scheduler incorrect initialization
+module: optimizer	sgd documentatiuon detail on g  t   
+module: optimizer	simplify adam optimizer
+module: optimizer	some lr schedulers docs seems to have typos missing information
+module: optimizer	sparseadam  working with dense parameters but sparse gradients   usecase
+module: optimizer	sparseadam performance issue during optimizer step
+module: optimizer	stride of gradient is not same as the corresponding tensor
+module: optimizer	support for velo optimizer 
+module: optimizer	swa utils bn update is too opinionated in how it calls the model
+module: optimizer	test can load older state dict nadam cuda float   errors with pytorch test with dynamo
+module: optimizer	the sequentiallr scheduler uses a deprecated pattern
+module: optimizer	the values calculated according to the document isn t equal to the values calculated by framework
+module: optimizer	torch gather with sparse grad true does not work with sgd optimizer with momentum  gives bad error message
+module: optimizer	torch optim adafactor
+module: optimizer	torch s layernorm and adam optimizer vs those in tensorflow
+module: optimizer	unexpected behaviour when resuming from checkpoint using cosineannealinglr
+module: optimizer	unprompted userwarning
+module: optimizer	unstable buggy calculation 
+module: optimizer	updating learning rate with libtorch     and optimiser options
+module: optimizer	upstream apex optimizers fusedadam to replace torch optim adamw
+module: optimizer	userwarning  seems like optimizer step   has been overridden after learning rate scheduler initialization  please  make sure to call optimizer step   before lr scheduler step    see more details at https   pytorch org docs stable optim html how to adjust learning rate   warnings warn  seems like optimizer step   has been overridden after learning rate scheduler
+module: optimizer	using chainedscheduler with reducelronplateau leads to unexpected keyword argument error
+module: optimizer	valueerror  optimizer got an empty parameter list
+module: optimizer	weight decay in adam is not an l  penalty
+module: optimizer	weight decay in adamw
+module: optimizer	wip  feat  lars optimizer
+module: optimizer	with dynamo  peak memory usage is higher for the adam family
+module: optimizer	with dynamo  test foreach matches forloop recompiles too many times
+module: optimizer	wrong type for get lr inside lr scheduler pyi
+module: optimizer	zerodivisionerror  float division by zero in adam  bias correction  is zero 
+module: tests	  rpow   self  other  opinfo should not test the case where other is a tensor
+module: tests	 better engineering  make opinfo based test failures easy to reproduce
+module: tests	 cta  let s stamp out flaky tests 
+module: tests	 distributed  nccl tests fail when having more than   gpus
+module: tests	 distributed test py  improve test barrier
+module: tests	 dynamo   optim  complex  sparse are not on tracing testing path
+module: tests	 feature request  add an option to run gpu tests only  and skip all cpu tests
+module: tests	 mkldnn  has bf   check only works on linux for tests
+module: tests	 opinfo  better errormsg for test out with wrong shape
+module: tests	 opinfo  confusing interface for ops decorator
+module: tests	 rfc  hardcoded target determination
+module: tests	 skipped   tests should have more descriptive skipped reason
+module: tests	 static runtime  staticruntime embeddingbag test case broken
+module: tests	 testing  dynamo testing  we should call dynamo reset before running each test with dynamo 
+module: tests	 testing  memory format decorator
+module: tests	 testing  skipinfo should error if cls name and test name combination is not valid
+module: tests	 testing  test reference numerics extremal clamp cpu bfloat   fails on ci build with gcc    and python    
+module: tests	add a ci configuration to test use distributed  
+module: tests	add autograd tests to verify correctness for r    c cases
+module: tests	add distributed examples into pytorch ci tests
+module: tests	add missing opinfos for prims ops
+module: tests	add opinfo metadata for  is torch functional  and a skip for these ops in testoperatorsignatures test get torch func signature exhaustive
+module: tests	add supports nnc metadata to opinfos
+module: tests	add testing regarding sparseadam state dicts
+module: tests	add unit tests for test decorators
+module: tests	addcdiv is failing the asan test for zero divisors
+module: tests	addressing skips in opinfo nn functional binary cross entropy with logits
+module: tests	assertequal gives confusing error when comparing tuple with tensor with tensor
+module: tests	attributeerror    thread  local  object has no attribute  rel tol   cannot use testcase assertequal from other threads 
+module: tests	auto skip the entire test when  parametrize takes an empty list
+module: tests	automatically rerun tests with cuda launch blocking   when they fail with cuda errors in ci
+module: tests	avoid code repeat in create sample inputs for sort msort
+module: tests	bazel target all tests improperly reports failures on cpu only  non cuda  build
+module: tests	be able to use pytest to run a  core  set of tests
+module: tests	better engineering  create test dlpack
+module: tests	better engineering  test     mem overlap in test torch py should be ported to errorinputs
+module: tests	better syntax for opinfo
+module: tests	c r fft input generation
+module: tests	caffe  depthwise x  conv test is broken
+module: tests	caffe  generate proposals op gpu test crashes on windows
+module: tests	caffe  reshapeopgputest crashes on windows
+module: tests	caffe  utility ops gpu test fails on windows
+module: tests	ci fails for test compare cpu nn functional embedding cuda float   which is not reproducible locally
+module: tests	cleanup tests in rpc test py
+module: tests	command to reproduce error is incorrect
+module: tests	core dumps being created when running test c  d py and test multiprocessing spawn py
+module: tests	cpu and cuda error messages are divergent in type promotion
+module: tests	cudapytorchtocaffe  mutualresizes is flaky
+module: tests	cumprod gradgradcheck fails in fast mode true
+module: tests	data loader tests hang when run in asan test job
+module: tests	detect openmp loop and this application may hang warnings
+module: tests	disabled test nondeterministic alert histc cuda    main   testtorchdevicetypecuda 
+module: tests	disabled test nondeterministic alert kthvalue cuda float      main   testtorchdevicetypecuda 
+module: tests	disabled test nondeterministic alert maxunpool d cuda float      main   testtorchdevicetypecuda 
+module: tests	disabled test nondeterministic alert maxunpool d cuda float      main   testtorchdevicetypecuda 
+module: tests	disabled test nondeterministic alert maxunpool d cuda float      main   testtorchdevicetypecuda 
+module: tests	disabled test nondeterministic alert maxunpool d cuda float      main   testtorchdevicetypecuda 
+module: tests	disabled test nondeterministic alert maxunpool d cuda float      main   testtorchdevicetypecuda 
+module: tests	disabled test nondeterministic alert maxunpool d cuda float      main   testtorchdevicetypecuda 
+module: tests	disabled test nondeterministic alert median cuda float      main   testtorchdevicetypecuda 
+module: tests	disabled test profiler    main   testjit 
+module: tests	discourage slow gradchecks
+module: tests	dynamo d test mixed device dtype needs higher tolerances for sgd and rmsprop
+module: tests	dynamo test pipeline failed on maxpool d test when changed to use f string
+module: tests	enable parallel test execution for gpu tests
+module: tests	expand pow and float pow sampling function for more coverage
+module: tests	extend test proxy tensor tests to support ops test non floating point types
+module: tests	feature request  deterministic test input generation
+module: tests	fft samples inputs with more than three dimensions
+module: tests	finishing opinfos  test autograd py
+module: tests	fr  record results of opinfo reference tests and detect when numerics of an operator change
+module: tests	helping test example code blocks in the docs
+module: tests	how to handle   module    attribute for public api bindings
+module: tests	improve meta tensor testing
+module: tests	improve test runtime of distributed tests 
+module: tests	improved opinfo dtype testing
+module: tests	improvement to cuda mem leak check
+module: tests	include finfo dtype   min  max  eps  tiny  in the extremal test case
+module: tests	index copy   test fails on pytorch xla
+module: tests	index fill  accepts wrong dtype for meta tensors
+module: tests	inductor test max autotune having timeout issues
+module: tests	isolate cpu tests from gpu tests
+module: tests	jit s default dtype is different in sandcastle and test jit py
+module: tests	jittest testautogradprofiler is broken in test misc cpp
+module: tests	look into test coverage for untypedstorage
+module: tests	make traced   doesn t respect setting the seed
+module: tests	many advanced indexing operations have untested large tensor branches
+module: tests	microbenchmark style tests
+module: tests	migrate c   tests to python runner
+module: tests	missing tests for gradcheck
+module: tests	modulefinder determinator is incompatible with imports into the test  directory
+module: tests	move functorch tests to under test 
+module: tests	newoperatorregistrationtest testimplnodefgetscaught failed 
+module: tests	nn functional no batch dim support should have opinfo examples
+module: tests	nondeterministic segfault in test content store py under dynamo config
+module: tests	normalize handling of scalar arguments
+module: tests	nvfuser batch norm with prims  internal assert failure from test suite
+module: tests	opinfo cuda bfloat   support detection is buggy
+module: tests	opinfo jit tests do not work with tensor kwarg arguments
+module: tests	opinfo request for nn functional and unbind
+module: tests	opinfos for torch ops aten operations
+module: tests	proper testing of nn module loading backward compatibility
+module: tests	property based testing like afl
+module: tests	provide a mechanism to set global state per test in thread safe manner
+module: tests	pytest suppresses stderr from python startup by default
+module: tests	pytorch framework tests using make tensor hangs with pytest s boxed exec option    forked 
+module: tests	pytorch test failed
+module: tests	pytorch tests failed
+module: tests	record file line number when creating test data  and then report it in backtraces associated with this data
+module: tests	refactor consolidate code for generating test tensors
+module: tests	refactor serialization tests to use device parametrization
+module: tests	require pytorch test suite to be warnings clean
+module: tests	review replacing test test namedtuple return api py with an opinfo based test
+module: tests	rewrite tests in test nn to not depend on lapack
+module: tests	run test py option to write out failed tests
+module: tests	runtimeerror  event device type cuda does not match blocking stream s device type cpu
+module: tests	scipy       may cause some test failures
+module: tests	sigxcpu at test cholesky solve with amd epyc         core processor
+module: tests	slighty out of tolerance for test mv and test cholesky solve batched cuda float  
+module: tests	some  slowtests are never run in ci
+module: tests	some largecudatensortest fails with oom when running with the entire test suit  but not when running standalone
+module: tests	some numba tests are failing
+module: tests	some way to specify expected failures for opinfo based tests
+module: tests	split getitem opinfo into dynamic and non dynamic inputs
+module: tests	tensorpipedistautogradtest is frequently failing
+module: tests	test autograd failures on power
+module: tests	test baddbmm cpu float   fails locally for me when built with debug  
+module: tests	test bottleneck cuda fails on power
+module: tests	test bottleneck cuda fails without error message
+module: tests	test can load older state dict nadam cuda float   errors with pytorch test with dynamo
+module: tests	test cat cuda    main   testtensorexprfuser  fails
+module: tests	test cholesky solve gradgradcheck fails sometimes
+module: tests	test cpp warnings have python context cpu fails under some build configurations
+module: tests	test distributed   does not show error details from the subprocess
+module: tests	test distributed   does not work with run test py  i option
+module: tests	test doc template is not working correctly
+module: tests	test failure  testcommoncpu test python ref  refs abs cpu complex  
+module: tests	test float to int conversion finite cpu int   is failing on macos
+module: tests	test fn grad fft fftn cpu complex    and test fn grad fft rfftn cpu float   are failing under tsan
+module: tests	test fs pool fails
+module: tests	test functionality to detect extra cross device synchronizations
+module: tests	test fx passes generate bad test names
+module: tests	test grid sample  from testnn  fails on power
+module: tests	test interpolate nearest scale  d in test nn takes too long to run
+module: tests	test jit fuser legacy and test jit fuser te are failing with sigiot
+module: tests	test license for wheel always fails on my local dev copy
+module: tests	test localresponsenorm  d custom params  test nn testnn  takes too long to run
+module: tests	test metal py must skip when not compiled with metal support
+module: tests	test nn module tests should run less tests
+module: tests	test profiler experimental tree cuda detailed is too unstable  and as its cuda only difficult to regen
+module: tests	test python reference meta functions takes too long to run
+module: tests	test pytorch onnx onnxruntime cuda py is not run in ci
+module: tests	test randperm is failing on cpu only build
+module: tests	test stream event nogil  is the test making a wrong assumption 
+module: tests	test test large cumprod cuda float   gets killed due to  probably  oom
+module: tests	test upsampling not recompute scale factor fails with eigen openblas
+module: tests	test wishart log prob fails locally for me
+module: tests	testautograd test deep reentrant fails with sigbus on macos
+module: tests	testcase assertequal has equal nan default to true
+module: tests	testcommoncuda test noncontiguous samples pca lowrank cuda float   fails on a    due to tf   operation in svd lowrank
+module: tests	testforeachcuda test binary op tensorlists fastpath  foreach add cuda bool and testforeachcuda test pointwise op fastpath  foreach addcmul cuda uint  fail intermittently
+module: tests	testlistwisel rops  test lambda rank loss fails
+module: tests	testmultiprocessing test fs sharing is flaky
+module: tests	tests in ci are run from the test  directory
+module: tests	testtorchdevicetypecpu test float to int conversion finite cpu uint  is broken on powerpc
+module: tests	testxnnpackconv dtransformpass test conv d with relu fc takes    min to finsh
+module: tests	the sequentiallr scheduler uses a deprecated pattern
+module: tests	tolerance for non determinism operators in gradcheck
+module: tests	toleranceoverride should override atol and rtol even when explicitly specified in a test
+module: tests	torch matmul doesn t handle zero sized inputs in some cases  leading to batched grad failures
+module: tests	torch overrides testing is not catching people adding new kwargs and not passing on to handle torch function
+module: tests	torch scatter doesn t fail correctly on cuda  memory overlap 
+module: tests	tracker  pytest related test improvements
+module: tests	turn deprecation warnings into errors in ci
+module: tests	uniformly test that defaulted tensor arguments appropriately handle   torch function  
+module: tests	unit test with   subprocess command doesn t respect the  k filter flag and runs all available sub tests
+module: tests	update use deterministic algorithms documentation and tests to include nn functional counterparts for all nn modules
+module: tests	use better tempfile creation mechanism to avoid skip windows test
+module: tests	with dynamo  peak memory usage is higher for the adam family
+module: tests	with dynamo  test foreach matches forloop recompiles too many times
+module: tests	xla not being tested in testautograddevicetype

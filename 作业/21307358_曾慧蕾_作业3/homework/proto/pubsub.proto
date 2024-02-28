@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+service Pubsub {
+    // 发布消息
+    rpc publish(PubRequest) returns (reply) {}
+    // 订阅消息 使用响应流 可一次处理多个消息
+    rpc subcribe(SubRequest) returns (stream reply) {}
+    // 游览 使用响应流 可一次处理多个消息
+}
+
+message PubRequest{
+    string topic = 1; //消息主题
+    string context = 2; //消息内容
+}
+
+message reply{
+    string message = 1; //消息 响应
+}
+
+message SubRequest{
+    string topic = 1; //消息主题
+    string clientID = 2; // 客户端ID
+    int32 TTL = 3; // 存储时间
+}
